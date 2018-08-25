@@ -1,0 +1,574 @@
+t=2018-08-09T10:58:12+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-08-09T10:58:12+0800 lvl=info msg="Config loaded from" logger=settings file=D:\\grafana-5.2.2/conf/defaults.ini
+t=2018-08-09T10:58:12+0800 lvl=info msg="Path Home" logger=settings path=D:\\grafana-5.2.2
+t=2018-08-09T10:58:12+0800 lvl=info msg="Path Data" logger=settings path=D:\\grafana-5.2.2\\data
+t=2018-08-09T10:58:12+0800 lvl=info msg="Path Logs" logger=settings path=D:\\grafana-5.2.2\\data\\log
+t=2018-08-09T10:58:12+0800 lvl=info msg="Path Plugins" logger=settings path=D:\\grafana-5.2.2\\data\\plugins
+t=2018-08-09T10:58:12+0800 lvl=info msg="Path Provisioning" logger=settings path=D:\\grafana-5.2.2\\conf\\provisioning
+t=2018-08-09T10:58:12+0800 lvl=info msg="App mode production" logger=settings
+t=2018-08-09T10:58:12+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-08-09T10:58:12+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-08-09T10:58:12+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-08-09T10:58:12+0800 lvl=info msg="Executing migration" logger=migrator id="create migration_log table"
+t=2018-08-09T10:58:12+0800 lvl=info msg="Executing migration" logger=migrator id="create user table"
+t=2018-08-09T10:58:12+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index user.login"
+t=2018-08-09T10:58:12+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index user.email"
+t=2018-08-09T10:58:12+0800 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_user_login - v1"
+t=2018-08-09T10:58:12+0800 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_user_email - v1"
+t=2018-08-09T10:58:12+0800 lvl=info msg="Executing migration" logger=migrator id="Rename table user to user_v1 - v1"
+t=2018-08-09T10:58:12+0800 lvl=info msg="Executing migration" logger=migrator id="create user table v2"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_user_login - v2"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_user_email - v2"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="copy data_source v1 to v2"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="Drop old table user_v1"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="Add column help_flags1 to user table"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="Update user table charset"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="Add last_seen_at column to user"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="create temp user table v1-7"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_email - v1-7"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_org_id - v1-7"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_code - v1-7"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_temp_user_status - v1-7"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="Update temp_user table charset"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="create star table"
+t=2018-08-09T10:58:13+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index star.user_id_dashboard_id"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="create org table v1"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_org_name - v1"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="create org_user table v1"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_org_user_org_id - v1"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_org_user_org_id_user_id - v1"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="Update org table charset"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="Update org_user table charset"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="Migrate all Read Only Viewers to Viewers"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard table"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="add index dashboard.account_id"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_account_id_slug"
+t=2018-08-09T10:58:14+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard_tag table"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_tag.dasboard_id_term"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_dashboard_tag_dashboard_id_term - v1"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="Rename table dashboard to dashboard_v1 - v1"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard v2"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_org_id - v2"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_dashboard_org_id_slug - v2"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="copy dashboard v1 to v2"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="drop table dashboard_v1"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="alter dashboard.data to mediumtext v1"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="Add column updated_by in dashboard - v2"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="Add column created_by in dashboard - v2"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="Add column gnetId in dashboard"
+t=2018-08-09T10:58:15+0800 lvl=info msg="Executing migration" logger=migrator id="Add index for gnetId in dashboard"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Add column plugin_id in dashboard"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Add index for plugin_id in dashboard"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Add index for dashboard_id in dashboard_tag"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Update dashboard table charset"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Update dashboard_tag table charset"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Add column folder_id in dashboard"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Add column isFolder in dashboard"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Add column has_acl in dashboard"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Add column uid in dashboard"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Update uid column values in dashboard"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Add unique index dashboard_org_id_uid"
+t=2018-08-09T10:58:16+0800 lvl=info msg="Executing migration" logger=migrator id="Remove unique index org_id_slug"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="Update dashboard title length"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="Add unique index for dashboard_org_id_title_folder_id"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard_provisioning"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="Rename table dashboard_provisioning to dashboard_provisioning_tmp_qwerty - v1"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard_provisioning v2"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_provisioning_dashboard_id - v2"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_provisioning_dashboard_id_name - v2"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="copy dashboard_provisioning v1 to v2"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="drop dashboard_provisioning_tmp_qwerty"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="Add check_sum column"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="create data_source table"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="add index data_source.account_id"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index data_source.account_id_name"
+t=2018-08-09T10:58:17+0800 lvl=info msg="Executing migration" logger=migrator id="drop index IDX_data_source_account_id - v1"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_data_source_account_id_name - v1"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="Rename table data_source to data_source_v1 - v1"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="create data_source table v2"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_data_source_org_id - v2"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_data_source_org_id_name - v2"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="copy data_source v1 to v2"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="Drop old table data_source_v1 #2"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="Add column with_credentials"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="Add secure json data column"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="Update data_source table charset"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="Update initial version to 1"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="Add read_only data column"
+t=2018-08-09T10:58:18+0800 lvl=info msg="Executing migration" logger=migrator id="create api_key table"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="add index api_key.account_id"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="add index api_key.key"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="add index api_key.account_id_name"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="drop index IDX_api_key_account_id - v1"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_api_key_key - v1"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="drop index UQE_api_key_account_id_name - v1"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="Rename table api_key to api_key_v1 - v1"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="create api_key table v2"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_api_key_org_id - v2"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_api_key_key - v2"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_api_key_org_id_name - v2"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="copy api_key v1 to v2"
+t=2018-08-09T10:58:19+0800 lvl=info msg="Executing migration" logger=migrator id="Drop old table api_key_v1"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="Update api_key table charset"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard_snapshot table v4"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="drop table dashboard_snapshot_v4 #1"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard_snapshot table v5 #2"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_dashboard_snapshot_key - v5"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_dashboard_snapshot_delete_key - v5"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_dashboard_snapshot_user_id - v5"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="alter dashboard_snapshot to mediumtext v2"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="Update dashboard_snapshot table charset"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="create quota table v1"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_quota_org_id_user_id_target - v1"
+t=2018-08-09T10:58:20+0800 lvl=info msg="Executing migration" logger=migrator id="Update quota table charset"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="create plugin_setting table"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="create index UQE_plugin_setting_org_id_plugin_id - v1"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="Add column plugin_version to plugin_settings"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="Update plugin_setting table charset"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="create session table"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="Drop old table playlist table"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="Drop old table playlist_item table"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="create playlist table v2"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="create playlist item table v2"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="Update playlist table charset"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="Update playlist_item table charset"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="drop preferences table v2"
+t=2018-08-09T10:58:21+0800 lvl=info msg="Executing migration" logger=migrator id="drop preferences table v3"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="create preferences table v3"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="Update preferences table charset"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="create alert table v1"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="add index alert org_id & id "
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="add index alert state"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="add index alert dashboard_id"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="create alert_notification table v1"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="Add column is_default"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="add index alert_notification org_id & name"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="Update alert table charset"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="Update alert_notification table charset"
+t=2018-08-09T10:58:22+0800 lvl=info msg="Executing migration" logger=migrator id="Drop old annotation table v4"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="create annotation table v5"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="add index annotation 0 v3"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="add index annotation 1 v3"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="add index annotation 2 v3"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="add index annotation 3 v3"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="add index annotation 4 v3"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Update annotation table charset"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Add column region_id to annotation table"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Drop category_id index"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Add column tags to annotation table"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Create annotation_tag table v2"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Add unique index annotation_tag.annotation_id_tag_id"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Update alert annotations and set TEXT to empty"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Add created time to annotation table"
+t=2018-08-09T10:58:23+0800 lvl=info msg="Executing migration" logger=migrator id="Add updated time to annotation table"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="Add index for created in annotation table"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="Add index for updated in annotation table"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="Convert existing annotations from seconds to milliseconds"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="create test_data table"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard_version table v1"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="add index dashboard_version.dashboard_id"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_version.dashboard_id and dashboard_version.version"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="Set dashboard version to 1 where 0"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="save existing dashboard data in dashboard_version table v1"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="alter dashboard_version.data to mediumtext v1"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="create team table"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="add index team.org_id"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index team_org_id_name"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="create team member table"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="add index team_member.org_id"
+t=2018-08-09T10:58:24+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index team_member_org_id_team_id_user_id"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="Add column email to team table"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="create dashboard acl table"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="add index dashboard_acl_dashboard_id"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_acl_dashboard_id_user_id"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="add unique index dashboard_acl_dashboard_id_team_id"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="save default acl rules in dashboard_acl table"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="create tag table"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="add index tag.key_value"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="create login attempt table"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="add index login_attempt.username"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="drop index IDX_login_attempt_username - v1"
+t=2018-08-09T10:58:25+0800 lvl=info msg="Executing migration" logger=migrator id="Rename table login_attempt to login_attempt_tmp_qwerty - v1"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Executing migration" logger=migrator id="create login_attempt v2"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_login_attempt_username - v2"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Executing migration" logger=migrator id="copy login_attempt v1 to v2"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Executing migration" logger=migrator id="drop login_attempt_tmp_qwerty"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Executing migration" logger=migrator id="create user auth table"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Executing migration" logger=migrator id="create index IDX_user_auth_auth_module_auth_id - v1"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Executing migration" logger=migrator id="alter user_auth.auth_id to length 190"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Created default admin user: %v" logger=sqlstore admin=nil LOG15_ERROR="Normalized odd number of arguments by adding nil"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-08-09T10:58:26+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-08-09T10:58:26+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-08-09T10:58:26+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-08-09T10:59:03+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=[::1] time_ms=4 size=29 referer=
+t=2018-08-09T11:13:35+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-08-09T11:13:35+0800 lvl=info msg="Config loaded from" logger=settings file=D:\\grafana-5.2.2/conf/defaults.ini
+t=2018-08-09T11:13:35+0800 lvl=info msg="Path Home" logger=settings path=D:\\grafana-5.2.2
+t=2018-08-09T11:13:35+0800 lvl=info msg="Path Data" logger=settings path=D:\\grafana-5.2.2\\data
+t=2018-08-09T11:13:35+0800 lvl=info msg="Path Logs" logger=settings path=D:\\grafana-5.2.2\\data\\log
+t=2018-08-09T11:13:35+0800 lvl=info msg="Path Plugins" logger=settings path=D:\\grafana-5.2.2\\data\\plugins
+t=2018-08-09T11:13:35+0800 lvl=info msg="Path Provisioning" logger=settings path=D:\\grafana-5.2.2\\conf\\provisioning
+t=2018-08-09T11:13:35+0800 lvl=info msg="App mode production" logger=settings
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-08-09T11:13:35+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-08-09T11:13:35+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-08-09T11:13:35+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-08-09T11:13:35+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-08-09T11:13:35+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-08-09T11:13:41+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-08-09T11:13:41+0800 lvl=info msg="Config loaded from" logger=settings file=D:\\grafana-5.2.2/conf/defaults.ini
+t=2018-08-09T11:13:41+0800 lvl=info msg="Path Home" logger=settings path=D:\\grafana-5.2.2
+t=2018-08-09T11:13:41+0800 lvl=info msg="Path Data" logger=settings path=D:\\grafana-5.2.2\\data
+t=2018-08-09T11:13:41+0800 lvl=info msg="Path Logs" logger=settings path=D:\\grafana-5.2.2\\data\\log
+t=2018-08-09T11:13:41+0800 lvl=info msg="Path Plugins" logger=settings path=D:\\grafana-5.2.2\\data\\plugins
+t=2018-08-09T11:13:41+0800 lvl=info msg="Path Provisioning" logger=settings path=D:\\grafana-5.2.2\\conf\\provisioning
+t=2018-08-09T11:13:41+0800 lvl=info msg="App mode production" logger=settings
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-08-09T11:13:41+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-08-09T11:13:41+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-08-09T11:13:41+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-08-09T11:13:41+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-08-09T11:13:41+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-08-09T11:15:28+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=45 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-09T11:42:06+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=70 size=15017 referer=
+t=2018-08-09T11:43:10+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=4 size=15017 referer=
+t=2018-08-09T11:44:14+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=228 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-09T11:45:23+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=8 size=15017 referer=
+t=2018-08-09T11:45:27+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=4 size=15017 referer=
+t=2018-08-09T11:45:34+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=50 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-09T12:46:04+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=7 size=11068 referer=
+t=2018-08-09T12:46:07+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/tsdb/testdata/random-walk status=401 remote_addr=[::1] time_ms=0 size=26 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=0&tab=metrics"
+t=2018-08-09T12:46:22+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/dashboard/ status=404 remote_addr=[::1] time_ms=2 size=11068 referer=
+t=2018-08-09T12:46:30+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=[::1] time_ms=1 size=29 referer=
+t=2018-08-09T12:46:30+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/login status=302 remote_addr=[::1] time_ms=5 size=24 referer=
+t=2018-08-09T12:46:57+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=4 size=15022 referer=
+t=2018-08-09T12:47:26+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=372 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-09T12:58:42+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=84 size=15022 referer=
+t=2018-08-09T12:58:59+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=225 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-09T13:01:17+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=3 size=15022 referer=
+t=2018-08-09T13:03:16+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=236 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-09T16:48:20+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=[::1] time_ms=10 size=29 referer=
+t=2018-08-10T09:33:20+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-08-10T09:33:20+0800 lvl=info msg="Config loaded from" logger=settings file=D:\\grafana-5.2.2/conf/defaults.ini
+t=2018-08-10T09:33:20+0800 lvl=info msg="Path Home" logger=settings path=D:\\grafana-5.2.2
+t=2018-08-10T09:33:20+0800 lvl=info msg="Path Data" logger=settings path=D:\\grafana-5.2.2\\data
+t=2018-08-10T09:33:20+0800 lvl=info msg="Path Logs" logger=settings path=D:\\grafana-5.2.2\\data\\log
+t=2018-08-10T09:33:20+0800 lvl=info msg="Path Plugins" logger=settings path=D:\\grafana-5.2.2\\data\\plugins
+t=2018-08-10T09:33:20+0800 lvl=info msg="Path Provisioning" logger=settings path=D:\\grafana-5.2.2\\conf\\provisioning
+t=2018-08-10T09:33:20+0800 lvl=info msg="App mode production" logger=settings
+t=2018-08-10T09:33:20+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-08-10T09:33:20+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-08-10T09:33:20+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-08-10T09:33:21+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-08-10T09:33:21+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-08-10T09:33:21+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-08-10T09:33:21+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-08-10T09:33:30+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=[::1] time_ms=21 size=29 referer=
+t=2018-08-10T09:33:30+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/login status=302 remote_addr=[::1] time_ms=32 size=32 referer=
+t=2018-08-10T09:33:43+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=272 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-10T10:01:59+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-08-10T10:01:59+0800 lvl=info msg="Config loaded from" logger=settings file="G:\\visual studio\\EMAY_GIT\\angular_fang/conf/defaults.ini"
+t=2018-08-10T10:01:59+0800 lvl=info msg="Path Home" logger=settings path="G:\\visual studio\\EMAY_GIT\\angular_fang"
+t=2018-08-10T10:01:59+0800 lvl=info msg="Path Data" logger=settings path="G:\\visual studio\\EMAY_GIT\\angular_fang\\data"
+t=2018-08-10T10:01:59+0800 lvl=info msg="Path Logs" logger=settings path="G:\\visual studio\\EMAY_GIT\\angular_fang\\data\\log"
+t=2018-08-10T10:01:59+0800 lvl=info msg="Path Plugins" logger=settings path="G:\\visual studio\\EMAY_GIT\\angular_fang\\data\\plugins"
+t=2018-08-10T10:01:59+0800 lvl=info msg="Path Provisioning" logger=settings path="G:\\visual studio\\EMAY_GIT\\angular_fang\\conf\\provisioning"
+t=2018-08-10T10:01:59+0800 lvl=info msg="App mode production" logger=settings
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-08-10T10:01:59+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-08-10T10:01:59+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-08-10T10:01:59+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-08-10T10:01:59+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-08-10T10:01:59+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-08-10T10:02:18+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=479 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-10T10:41:59+0800 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=0
+t=2018-08-10T11:54:07+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=2 size=15022 referer=
+t=2018-08-10T11:54:14+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=52 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-10T12:21:49+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=2 size=15022 referer=
+t=2018-08-10T12:22:01+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=49 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-10T13:23:45+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=73 size=15022 referer=
+t=2018-08-10T13:24:37+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=281 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-10T13:50:19+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=[::1] time_ms=4 size=29 referer=
+t=2018-08-10T13:50:19+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/login status=302 remote_addr=[::1] time_ms=5 size=32 referer=
+t=2018-08-10T13:50:30+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=253 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-10T14:00:51+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=4 size=15022 referer=
+t=2018-08-10T14:00:56+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=52 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-10T14:07:52+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=65 size=15022 referer=
+t=2018-08-10T14:09:45+0800 lvl=info msg="Shutdown started" logger=server reason="System signal: interrupt"
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped InternalMetricsService" logger=server reason="context canceled"
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped ProvisioningService" logger=server reason="context canceled"
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped PluginManager" logger=server reason="context canceled"
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped NotificationService" logger=server reason="context canceled"
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped CleanUpService" logger=server reason="context canceled"
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped RenderingService" logger=server reason=nil
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped TracingService" logger=server reason=nil
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped Stream Manager"
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped AlertingService" logger=server reason="context canceled"
+t=2018-08-10T14:09:45+0800 lvl=info msg="Stopped HTTPServer" logger=server reason=nil
+t=2018-08-10T14:09:45+0800 lvl=eror msg="Server shutdown" logger=server reason="System signal: interrupt"
+t=2018-08-12T13:04:49+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-08-12T13:04:49+0800 lvl=info msg="Config loaded from" logger=settings file=E:\\xampp\\htdocs\\fang_angular/conf/defaults.ini
+t=2018-08-12T13:04:49+0800 lvl=info msg="Path Home" logger=settings path=E:\\xampp\\htdocs\\fang_angular
+t=2018-08-12T13:04:49+0800 lvl=info msg="Path Data" logger=settings path=E:\\xampp\\htdocs\\fang_angular\\data
+t=2018-08-12T13:04:49+0800 lvl=info msg="Path Logs" logger=settings path=E:\\xampp\\htdocs\\fang_angular\\data\\log
+t=2018-08-12T13:04:49+0800 lvl=info msg="Path Plugins" logger=settings path=E:\\xampp\\htdocs\\fang_angular\\data\\plugins
+t=2018-08-12T13:04:49+0800 lvl=info msg="Path Provisioning" logger=settings path=E:\\xampp\\htdocs\\fang_angular\\conf\\provisioning
+t=2018-08-12T13:04:49+0800 lvl=info msg="App mode production" logger=settings
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-08-12T13:04:49+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-08-12T13:04:49+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-08-12T13:04:49+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-08-12T13:04:49+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-08-12T13:04:49+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-08-12T13:05:03+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/ status=302 remote_addr=127.0.0.1 time_ms=23 size=29 referer=
+t=2018-08-12T13:05:40+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1808 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-12T13:07:41+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=502 remote_addr=127.0.0.1 time_ms=120217 size=67 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-12T13:11:20+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-08-12T13:11:20+0800 lvl=info msg="Config loaded from" logger=settings file=E:\\xampp\\htdocs\\fang_angular/conf/defaults.ini
+t=2018-08-12T13:11:20+0800 lvl=info msg="Path Home" logger=settings path=E:\\xampp\\htdocs\\fang_angular
+t=2018-08-12T13:11:20+0800 lvl=info msg="Path Data" logger=settings path=E:\\xampp\\htdocs\\fang_angular\\data
+t=2018-08-12T13:11:20+0800 lvl=info msg="Path Logs" logger=settings path=E:\\xampp\\htdocs\\fang_angular\\data\\log
+t=2018-08-12T13:11:20+0800 lvl=info msg="Path Plugins" logger=settings path=E:\\xampp\\htdocs\\fang_angular\\data\\plugins
+t=2018-08-12T13:11:20+0800 lvl=info msg="Path Provisioning" logger=settings path=E:\\xampp\\htdocs\\fang_angular\\conf\\provisioning
+t=2018-08-12T13:11:20+0800 lvl=info msg="App mode production" logger=settings
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-08-12T13:11:20+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-08-12T13:11:20+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-08-12T13:11:20+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-08-12T13:11:20+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-08-12T13:11:20+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-08-12T13:21:58+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=183 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T13:22:09+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1062 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-12T13:23:01+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=16 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T13:23:09+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=223 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T13:25:07+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=14 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T13:25:28+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1084 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T13:29:32+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=177 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T13:29:47+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1097 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T13:30:23+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=11 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T13:37:37+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=146 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T13:41:23+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=17 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T13:42:24+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1238 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T13:51:16+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=584 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:06:13+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=298 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:12:11+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=185 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:12:56+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=96 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:13:34+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=86 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:16:04+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=139 size=15111 referer=
+t=2018-08-12T14:18:50+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=233 size=15111 referer=
+t=2018-08-12T14:18:50+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=107 size=3959 referer=
+t=2018-08-12T14:18:50+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=82 size=15111 referer=
+t=2018-08-12T14:18:50+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=14 size=15111 referer=
+t=2018-08-12T14:18:51+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=165 size=15111 referer=
+t=2018-08-12T14:18:51+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=130 size=15111 referer=
+t=2018-08-12T14:18:51+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=27 size=15111 referer=
+t=2018-08-12T14:31:16+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=230 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:40:43+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=98 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:41:16+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=232 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:42:52+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=207 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:43:08+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=169 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:43:58+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=255 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:47:03+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=183 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:48:06+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=6 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:48:21+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=191 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:59:07+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=478 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T14:59:53+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=95 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:00:07+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/public/plugins/progress-bar-panel/module.js status=404 remote_addr=127.0.0.1 time_ms=233 size=15111 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:00:27+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=26 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:11:46+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=121 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:12:14+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1818 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:14:53+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=148 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:16:01+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1927 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:16:59+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=519 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:17:14+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=433 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:22:46+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=484 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:23:10+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=2207 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:24:39+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=100 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:25:02+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1852 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:38:58+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=518 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:39:50+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1559 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:42:01+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=133 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:42:36+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1518 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:45:07+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=375 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:45:20+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=2923 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:47:35+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=109 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:47:48+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1831 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:50:07+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=147 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:50:21+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1632 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T15:53:04+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=126 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:54:33+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=307 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:55:48+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=436 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:58:41+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=153 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T15:58:53+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=100 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T16:06:07+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=431 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T16:09:56+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=104 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T16:11:05+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1553 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-08-12T16:12:55+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=110 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T16:19:39+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=535 size=15111 referer=http://127.0.0.1:3000/dashboard/new
+t=2018-08-12T16:21:14+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=2289 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-08-12T16:25:52+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=602 size=15111 referer=
+t=2018-08-12T16:28:53+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1679 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T16:34:17+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=426 size=15111 referer=
+t=2018-08-12T16:36:54+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=286 size=15111 referer=
+t=2018-08-12T16:37:54+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=197 size=15111 referer=
+t=2018-08-12T16:38:34+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1804 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T16:42:34+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=600 size=15111 referer=
+t=2018-08-12T16:42:57+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1503 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T16:54:21+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=435 size=15111 referer=
+t=2018-08-12T16:57:01+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=149 size=15111 referer=
+t=2018-08-12T18:30:56+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=171 size=15111 referer=
+t=2018-08-12T18:31:16+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1731 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T18:32:51+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=100 size=15111 referer=
+t=2018-08-12T18:33:25+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1230 size=148 referer="http://127.0.0.1:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-08-12T18:46:59+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=166 size=15111 referer=
+t=2018-08-12T18:49:38+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=140 size=15111 referer=
+t=2018-08-12T18:50:38+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=105 size=15111 referer=
+t=2018-08-12T18:51:41+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=13 size=15111 referer=
+t=2018-08-12T18:53:04+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=97 size=15111 referer=
+t=2018-08-12T18:54:32+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=166 size=15111 referer=
+t=2018-08-12T18:59:28+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=106 size=15111 referer=
+t=2018-08-12T19:00:40+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=6 size=15111 referer=
+t=2018-08-12T19:13:06+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=388 size=15111 referer=
+t=2018-08-12T19:18:55+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=282 size=15111 referer=
+t=2018-08-12T19:20:26+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=11 size=15111 referer=
+t=2018-08-12T19:23:59+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=132 size=15111 referer=
+t=2018-08-12T19:25:28+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=15 size=15111 referer=
+t=2018-08-12T19:31:40+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=490 size=15111 referer=
+t=2018-08-12T19:31:47+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/public/plugins/progress-bar-panel/rendering.js status=404 remote_addr=127.0.0.1 time_ms=12 size=15111 referer="http://127.0.0.1:3000/dashboard/new?orgId=1"
+t=2018-08-12T19:37:44+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=108 size=15111 referer=
+t=2018-08-12T19:39:42+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=99 size=15111 referer=
+t=2018-08-12T19:54:48+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=99 size=15111 referer=
+t=2018-08-12T19:56:06+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=14 size=15111 referer=
+t=2018-08-12T19:58:33+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=6 size=15111 referer=
+t=2018-08-12T20:00:00+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=71 size=15111 referer=
+t=2018-08-12T20:00:15+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=8 size=15111 referer=
+t=2018-08-12T20:07:10+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=535 size=15111 referer=
+t=2018-08-12T20:10:32+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=6 size=15111 referer=
+t=2018-08-12T20:23:52+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=135 size=15111 referer=
+t=2018-08-12T20:47:07+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=245 size=15111 referer=
+t=2018-08-12T20:49:57+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=19 size=15111 referer=
+t=2018-08-12T20:51:01+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=18 size=15111 referer=
+t=2018-08-12T20:55:50+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=198 size=15111 referer=
+t=2018-08-12T20:57:54+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=6 size=15111 referer=
+t=2018-08-12T20:58:25+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1699 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit"
+t=2018-08-12T21:03:36+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=581 size=15111 referer=
+t=2018-08-12T21:04:25+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=17 size=15111 referer=
+t=2018-08-12T21:12:34+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1208 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-08-12T21:23:54+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=155 size=15111 referer=
+t=2018-08-12T21:24:12+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1098 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-08-12T21:28:24+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=6 size=15111 referer=
+t=2018-08-12T21:31:15+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1278 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-08-12T21:53:41+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=195 size=15111 referer=
+t=2018-08-12T21:54:51+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1236 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-08-12T22:13:27+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=109 size=15111 referer=
+t=2018-08-12T22:13:59+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1287 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-08-12T22:30:36+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=134 size=15111 referer=
+t=2018-08-12T22:30:53+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1272 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-08-12T22:36:52+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=125 size=15111 referer=
+t=2018-08-12T22:38:51+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=22 size=15111 referer=
+t=2018-08-12T22:42:12+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=105 size=15111 referer=
+t=2018-08-12T22:44:14+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=12 size=15111 referer=
+t=2018-08-12T22:48:40+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=109 size=15111 referer=
+t=2018-08-12T22:50:33+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=10 size=15111 referer=
+t=2018-08-12T22:52:17+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=308 size=15111 referer=
+t=2018-08-12T22:58:29+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=230 size=15111 referer=
+t=2018-08-12T22:59:27+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=69 size=15111 referer=
+t=2018-08-12T23:00:34+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=15 size=15111 referer=
+t=2018-08-12T23:01:45+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=95 size=15111 referer=
+t=2018-08-12T23:05:23+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=285 size=15111 referer=
+t=2018-08-12T23:05:37+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=67 size=15111 referer=
+t=2018-08-12T23:11:49+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=99 size=15111 referer=
+t=2018-08-12T23:14:37+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1343 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit"
+t=2018-08-12T23:30:03+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=171 size=15111 referer=
+t=2018-08-12T23:30:14+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1221 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit"
+t=2018-08-12T23:43:36+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=6 size=15111 referer=
+t=2018-08-12T23:45:48+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=66 size=15111 referer=
+t=2018-08-12T23:46:15+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1924 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit"
+t=2018-08-12T23:52:08+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=21 size=15111 referer=
+t=2018-08-12T23:52:55+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=122 size=15111 referer=
+t=2018-08-12T23:54:23+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=14 size=15111 referer=
+t=2018-08-12T23:54:41+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1556 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit"
+t=2018-08-12T23:58:43+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=127.0.0.1 time_ms=421 size=15111 referer=
+t=2018-08-12T23:58:55+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=127.0.0.1 time_ms=1412 size=148 referer="http://127.0.0.1:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit"

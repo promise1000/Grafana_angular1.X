@@ -1,0 +1,32 @@
+{
+  "type": "panel",
+  "name": "progress bar",
+  "id": "progress-bar-panel",
+
+  "info": {
+    "description": "progress-bar-panel for grafana",
+    "author": {
+      "name": "Advantech",
+      "url": "http://grafana.com"
+    },
+    "keywords": ["panel"],
+    "logos": {
+      "small": "src/img/logo.svg",
+      "large": "src/img/logo.svg"
+    },
+    "links": [
+      {"name": "Project site", "url": "https://github.com/grafana/piechart-panel"},
+      {"name": "Blog Post", "url": "https://blog.raintank.io/friends-dont-let-friends-abuse-pie-charts/"},
+      {"name": "MIT License", "url": "https://github.com/grafana/piechart-panel/blob/master/LICENSE"}
+    ],
+    "screenshots": [
+    ],
+    "version": "1.0.3",
+    "updated": "2018-8-2"
+  },
+
+  "dependencies": {
+    "grafanaVersion": "4.6",
+    "plugins": [ ]
+  }
+}
