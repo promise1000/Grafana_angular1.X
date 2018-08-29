@@ -2,22 +2,26 @@
 #flotGagueValue0{
     display: block;
     text-align: center;
-    bottom:auto;
-    width: 95%;
-    left: 0;
+    /* bottom:auto;  */
+    width: 60%;
+    /* height: 45%; */
+    left: 0 !important; 
     right: 0;
     margin:0 auto;
+    overflow: hidden;
+    white-space: pre-wrap;
 }
-.postColor{
-    position: absolute;
+/* .postColor{
+    position: absolute; 
     left: 0;
     right: 0;
-    top:70%;
+    top:70%; 
     bottom:auto;
     margin:0 auto;
-    width: 95%;
+    width: auto; 
     text-align: center;
-}
+    overflow: hidden;
+} */
 
 
 

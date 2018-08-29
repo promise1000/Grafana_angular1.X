@@ -52,7 +52,9 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     format: 'none',
     prefix: '',
     postfix: '',
-    decimals: 0,
+    decimals: 0,//
+    prefixColor:'#0cc90c',//
+    postfixColor:'#0cc90c',//
     seriesIndex: 'A',
     nullText: null,
     valueMaps: [{ value: 'null', op: '=', text: 'N/A' }],
@@ -84,17 +86,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     },
     tableColumn: '',
 
-// 初始化数据数组
-  //  singlestatData:{
-  //    currentValue: 50,
-  //    min: 0,
-  //    max: 100,
-  //    postfixUnit: '',
-  //    prefixUnit: '',
-  //    thresholds: '10,50',
-  //    decimal: 2
-  //  }
-
   };
 
   /** @ngInject */
@@ -117,7 +108,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     this.addEditorTab('Value Mappings', 'public/plugins/singlestat_ec/mappings.html', 3);
     this.unitFormats = kbn.getUnitFormats();
   }
-// 设置单位？
+// 设置单位
   setUnitFormat(subItem) {
     this.panel.format = subItem.value;
     this.refresh();
@@ -233,14 +224,14 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     }
     this.render();
   }
-// ？？？？
+// 
   invertColorOrder() {
     var tmp = this.panel.colors[0];
     this.panel.colors[0] = this.panel.colors[2];
     this.panel.colors[2] = tmp;
     this.render();
   }
-// ？？？
+// 颜色改变的函数
   onColorChange(panelColorIndex) {
     return color => {
       this.panel.colors[panelColorIndex] = color;
@@ -536,6 +527,11 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         value: panel.gauge.maxValue,
         color: data.colorMap[data.colorMap.length - 1],
       });
+// 阈值增加颜色添加
+      while (panel.colors.length < data.thresholds.length+1) {
+        const newColor = 'rgba(50, 172, 45, 0.97)';
+        panel.colors.push(newColor);
+      }
 
       var bgColor = config.bootData.user.lightTheme ? 'rgb(230,230,230)' : 'rgb(38,38,38)';
 
@@ -595,7 +591,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       };
       console.log($('#flotGagueValue0'))
       $.plot(plotCanvas, [plotSeries], options);
-      $('#flotGagueValue0').html('<span style="color:green;font-size:'+panel.prefixFontSize+'" >'+panel.prefix+'</span><span style="color:red;font-size:'+fontSize+'px">'+(+data.valueFormatted).toFixed(panel.decimals)+'</span><span style="color:red;font-size:'+panel.postfixFontSize+'" class="postColor">'+panel.postfix+'</span>')
+      $('#flotGagueValue0').html('<span style="color:'+panel.prefixColor+' ;font-size:'+panel.prefixFontSize+'" >'+panel.prefix+'</span><span style="color:'+getColorForValue(data, data.valueRounded)+';font-size:'+fontSize+'px">'+(+data.valueFormatted).toFixed(panel.decimals)+'</span><span style="color:'+panel.postfixColor+' ;font-size:'+panel.postfixFontSize+'" class="postColor">'+panel.postfix+'</span>')
       
     }
 
@@ -668,6 +664,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       // get thresholds
       data.thresholds = panel.thresholds.split(',').map(function(strVale) {
         return Number(strVale.trim());
+
       });
       data.colorMap = panel.colors;
 
@@ -776,7 +773,14 @@ function getColorForValue(data, value) {
     }
   }
 
+
   return _.first(data.colorMap);
 }
 
 export { SingleStatCtrl, SingleStatCtrl as PanelCtrl, getColorForValue };
+
+
+// while (this.panel.colors.length < this.panel.thresholds.length) {
+//   const newColor = 'rgba(50, 172, 45, 0.97)';
+//   this.panel.colors.push(newColor);
+// }

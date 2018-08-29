@@ -79,6 +79,8 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         prefix: '',
                         postfix: '',
                         decimals: 0,
+                        prefixColor: '#0cc90c',
+                        postfixColor: '#0cc90c',
                         seriesIndex: 'A',
                         nullText: null,
                         valueMaps: [{ value: 'null', op: '=', text: 'N/A' }],
@@ -470,6 +472,10 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                             value: panel.gauge.maxValue,
                             color: data.colorMap[data.colorMap.length - 1],
                         });
+                        while (panel.colors.length < data.thresholds.length + 1) {
+                            var newColor = 'rgba(50, 172, 45, 0.97)';
+                            panel.colors.push(newColor);
+                        }
                         var bgColor = config_1.default.bootData.user.lightTheme ? 'rgb(230,230,230)' : 'rgb(38,38,38)';
                         var fontScale = parseInt(panel.valueFontSize) / 100;
                         var fontSize = Math.min(dimension / 5, 100) * fontScale;
@@ -513,7 +519,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         };
                         console.log(jquery_1.default('#flotGagueValue0'));
                         jquery_1.default.plot(plotCanvas, [plotSeries], options);
-                        jquery_1.default('#flotGagueValue0').html('<span style="color:green;font-size:' + panel.prefixFontSize + '" >' + panel.prefix + '</span><span style="color:red;font-size:' + fontSize + 'px">' + (+data.valueFormatted).toFixed(panel.decimals) + '</span><span style="color:red;font-size:' + panel.postfixFontSize + '" class="postColor">' + panel.postfix + '</span>');
+                        jquery_1.default('#flotGagueValue0').html('<span style="color:' + panel.prefixColor + ' ;font-size:' + panel.prefixFontSize + '" >' + panel.prefix + '</span><span style="color:' + getColorForValue(data, data.valueRounded) + ';font-size:' + fontSize + 'px">' + (+data.valueFormatted).toFixed(panel.decimals) + '</span><span style="color:' + panel.postfixColor + ' ;font-size:' + panel.postfixFontSize + '" class="postColor">' + panel.postfix + '</span>');
                     }
                     function addSparkline() {
                         var width = elem.width() + 20;
