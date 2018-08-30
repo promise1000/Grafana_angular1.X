@@ -86,11 +86,11 @@
       <span class="gf-form-label" ng-repeat="color in ctrl.panel.colors track by $index">
         <color-picker color="color" onChange="ctrl.onColorChange($index)"></color-picker>
       </span>
-      <span class="gf-form-label">
+      <!-- <span class="gf-form-label">
         <a  ng-click="ctrl.invertColorOrder()">
           Invert
         </a>
-      </span>
+      </span> -->
     </div>
   </div>
 
@@ -125,31 +125,43 @@
     <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-8" label="Show" checked="ctrl.panel.gauge.show" on-change="ctrl.render()"></gf-form-switch>
     <div ng-if="ctrl.panel.gauge.show">
       <div class="gf-form">
-        <label class="gf-form-label width-10">Min</label>
-        <input type="number" class="gf-form-input width-8" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.minValue" ng-change="ctrl.refresh()" ng-model-onblur>
+        <label class="gf-form-label width-6">Min</label>
+        <input type="number" class="gf-form-input width-6" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.minValue" ng-change="ctrl.refresh()" ng-model-onblur>
         <label class="gf-form-label alert-state-critical" ng-show="ctrl.invalidGaugeRange">
           &nbsp; <i class="fa fa-warning"></i>
           Min value is bigger than max.
         </label>
+
+        <label class="gf-form-label width-7">Max</label>
+        <input type="number" class="gf-form-input width-6" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.maxValue" ng-change="ctrl.refresh()" ng-model-onblur>   
       </div>
+
       <div class="gf-form">
-        <label class="gf-form-label width-10">Max</label>
-        <input type="number" class="gf-form-input width-8" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.maxValue" ng-change="ctrl.refresh()" ng-model-onblur>
+        <!-- 圈外面值的大小设置 -->
+        <label class="gf-form-label width-6">Label Size</label>
+        <input type="number" class="gf-form-input width-6" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.maxValue" ng-change="ctrl.refresh()" ng-model-onblur>
+        <!-- 圈外面值的颜色设置 -->
+        <label class="gf-form-label width-7">Label Colors</label>
+        <spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.postfixColor" ng-change="ctrl.render()" ></spectrum-picker>
       </div>
-      <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-8" label="Threshold labels" checked="ctrl.panel.gauge.thresholdLabels" on-change="ctrl.render()"></gf-form-switch>
-      <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-8" label="Threshold markers" checked="ctrl.panel.gauge.thresholdMarkers" on-change="ctrl.render()"></gf-form-switch>
+
+      <gf-form-switch class="gf-form" label-class="width-9" switch-class="max-width-8" label="Threshold labels" checked="ctrl.panel.gauge.thresholdLabels" on-change="ctrl.render()"></gf-form-switch>
+      <gf-form-switch class="gf-form" label-class="width-9" switch-class="max-width-8" label="Threshold markers" checked="ctrl.panel.gauge.thresholdMarkers" on-change="ctrl.render()"></gf-form-switch>
       <!-- 弧度的起始位置，让用户去自己填写角度开口向哪里 -->
       <div class="gf-form">
-        <label class="gf-form-label width-10">Radian Choice</label>
+        <label class="gf-form-label width-9">Choose radiane</label>
         <input type="number" class="gf-form-input width-8" placeholder="auto" data-placement="right" bs-tooltip=" " ng-model="" ng-change="ctrl.refresh()" ng-model-onblur>
       </div>
       <!-- 选择逆时针还是顺时针 -->
       <div class="gf-form">
-        <label class="gf-form-label width-10">Choose radian</label>
+        <label class="gf-form-label width-9">Choose Direction</label>
         <div class="gf-form-select-wrapper">
           <select class="input-small gf-form-input width-8" ng-model="ctrl.panel.seriesIndex"  ng-model="ctrl.panel.seriesIndex" ng-options="f for f in ['A', 'B']" ng-change="ctrl.render()"></select>
         </div>
       </div>
     </div>
+
+
+
   </div>
 </div>
