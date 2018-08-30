@@ -122,37 +122,36 @@
 
   <div class="section gf-form-group">
     <h5 class="section-heading">Gauge</h5>
-    <gf-form-switch class="gf-form" label-class="width-10" switch-class="max-width-8" label="Show" checked="ctrl.panel.gauge.show" on-change="ctrl.render()"></gf-form-switch>
+    <gf-form-switch class="gf-form" label-class="width-9" switch-class="max-width-8" label="Show" checked="ctrl.panel.gauge.show" on-change="ctrl.render()"></gf-form-switch>
     <div ng-if="ctrl.panel.gauge.show">
       <div class="gf-form">
-        <label class="gf-form-label width-6">Min</label>
-        <input type="number" class="gf-form-input width-6" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.minValue" ng-change="ctrl.refresh()" ng-model-onblur>
+        <label class="gf-form-label width-9">Min</label>
+        <input type="number" class="gf-form-input width-8" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.minValue" ng-change="ctrl.refresh()" ng-model-onblur>
         <label class="gf-form-label alert-state-critical" ng-show="ctrl.invalidGaugeRange">
           &nbsp; <i class="fa fa-warning"></i>
           Min value is bigger than max.
         </label>
-
-        <label class="gf-form-label width-7">Max</label>
-        <input type="number" class="gf-form-input width-6" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.maxValue" ng-change="ctrl.refresh()" ng-model-onblur>   
       </div>
 
       <div class="gf-form">
-        <!-- 圈外面值的大小设置 -->
-        <label class="gf-form-label width-6">Label Size</label>
-        <input type="number" class="gf-form-input width-6" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.maxValue" ng-change="ctrl.refresh()" ng-model-onblur>
-        <!-- 圈外面值的颜色设置 -->
-        <label class="gf-form-label width-7">Label Colors</label>
+        <label class="gf-form-label width-9">Max</label>
+        <input type="number" class="gf-form-input width-8" placeholder="0" data-placement="right" ng-model="ctrl.panel.gauge.maxValue" ng-change="ctrl.refresh()" ng-model-onblur>   
+      </div>
+
+      <div class="gf-form">
+        <!-- 圈外面值的颜色设置（还没有实现） -->
+        <label class="gf-form-label width-9">Label Colors</label>
         <spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.postfixColor" ng-change="ctrl.render()" ></spectrum-picker>
       </div>
 
       <gf-form-switch class="gf-form" label-class="width-9" switch-class="max-width-8" label="Threshold labels" checked="ctrl.panel.gauge.thresholdLabels" on-change="ctrl.render()"></gf-form-switch>
       <gf-form-switch class="gf-form" label-class="width-9" switch-class="max-width-8" label="Threshold markers" checked="ctrl.panel.gauge.thresholdMarkers" on-change="ctrl.render()"></gf-form-switch>
-      <!-- 弧度的起始位置，让用户去自己填写角度开口向哪里 -->
+      <!-- 弧度的起始位置，让用户去自己填写角度开口向哪里如20,60的度数（还没有实现） -->
       <div class="gf-form">
         <label class="gf-form-label width-9">Choose radiane</label>
         <input type="number" class="gf-form-input width-8" placeholder="auto" data-placement="right" bs-tooltip=" " ng-model="" ng-change="ctrl.refresh()" ng-model-onblur>
       </div>
-      <!-- 选择逆时针还是顺时针 -->
+      <!-- 选择逆时针还是顺时针 （还没有实现）-->
       <div class="gf-form">
         <label class="gf-form-label width-9">Choose Direction</label>
         <div class="gf-form-select-wrapper">
@@ -160,8 +159,5 @@
         </div>
       </div>
     </div>
-
-
-
   </div>
 </div>

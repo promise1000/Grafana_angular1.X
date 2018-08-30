@@ -224,7 +224,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     }
     this.render();
   }
-// 
+// 啥意思？
   invertColorOrder() {
     var tmp = this.panel.colors[0];
     this.panel.colors[0] = this.panel.colors[2];
@@ -238,6 +238,11 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       this.render();
     };
   }
+  // 生成随机色
+  randomColor () { 
+    return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice( - 6);
+  }
+  
 // 设置火花线
   onSparklineColorChange(newColor) {
     this.panel.sparkline.lineColor = newColor;
@@ -491,12 +496,13 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       return result;
     }
 
-//  设置勾选Gauge的函数 （设置背景半圆的弧度也要从这里设置，从正的180到-180的不同方向的半圈）
+//  设置勾选Gauge的函数
     function addGauge() {
       var width = elem.width();
       var height = elem.height();
       // Allow to use a bit more space for wide gauges
       // 尺寸
+      // 
       var dimension = Math.min(width, height * 1.3);
 
       ctrl.invalidGaugeRange = false;
@@ -527,12 +533,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         value: panel.gauge.maxValue,
         color: data.colorMap[data.colorMap.length - 1],
       });
-// 阈值增加颜色添加
-      while (panel.colors.length < data.thresholds.length+1) {
-        const newColor = 'rgba(50, 172, 45, 0.97)';
-        panel.colors.push(newColor);
-      }
-
       var bgColor = config.bootData.user.lightTheme ? 'rgb(230,230,230)' : 'rgb(38,38,38)';
 
       var fontScale = parseInt(panel.valueFontSize) / 100;
@@ -542,7 +542,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       var gaugeWidth = Math.min(dimension / 6, 60) / gaugeWidthReduceRatio;
       var thresholdMarkersWidth = gaugeWidth / 5;
       var thresholdLabelFontSize = fontSize / 2.5;
-
       var options = {
         series: {
           gauges: {
@@ -654,7 +653,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       $.plot(plotCanvas, [plotSeries], options);
       
     }
-
+    // 视图渲染函数
     function render() {
       if (!ctrl.data) {
         return;
@@ -664,9 +663,15 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       // get thresholds
       data.thresholds = panel.thresholds.split(',').map(function(strVale) {
         return Number(strVale.trim());
-
       });
+
       data.colorMap = panel.colors;
+      while (panel.colors.length < data.thresholds.length+1) {
+        data.colorMap.push(ctrl.randomColor());
+      }
+      while (panel.colors.length > data.thresholds.length+1) {
+        panel.colors.pop();
+      }
 
       var body = panel.gauge.show ? '' : getBigValueHtml();
 
@@ -703,7 +708,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         linkInfo = null;
       }
     }
-//  ？？？？
+//  
     function hookupDrilldownLinkTooltip() {
       // drilldown link tooltip
       var drilldownTooltip = $('<div id="tooltip" class="">hello</div>"');
@@ -766,7 +771,7 @@ function getColorForValue(data, value) {
   if (!_.isFinite(value)) {
     return null;
   }
-
+// 阈值减少一个，颜色就减一个
   for (var i = data.thresholds.length; i > 0; i--) {
     if (value >= data.thresholds[i - 1]) {
       return data.colorMap[i];
@@ -779,8 +784,3 @@ function getColorForValue(data, value) {
 
 export { SingleStatCtrl, SingleStatCtrl as PanelCtrl, getColorForValue };
 
-
-// while (this.panel.colors.length < this.panel.thresholds.length) {
-//   const newColor = 'rgba(50, 172, 45, 0.97)';
-//   this.panel.colors.push(newColor);
-// }

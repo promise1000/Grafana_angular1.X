@@ -233,6 +233,9 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         _this.render();
                     };
                 };
+                SingleStatCtrl.prototype.randomColor = function () {
+                    return '#' + ('00000' + (Math.random() * 0x1000000 << 0).toString(16)).slice(-6);
+                };
                 SingleStatCtrl.prototype.onSparklineColorChange = function (newColor) {
                     this.panel.sparkline.lineColor = newColor;
                     this.render();
@@ -472,10 +475,6 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                             value: panel.gauge.maxValue,
                             color: data.colorMap[data.colorMap.length - 1],
                         });
-                        while (panel.colors.length < data.thresholds.length + 1) {
-                            var newColor = 'rgba(50, 172, 45, 0.97)';
-                            panel.colors.push(newColor);
-                        }
                         var bgColor = config_1.default.bootData.user.lightTheme ? 'rgb(230,230,230)' : 'rgb(38,38,38)';
                         var fontScale = parseInt(panel.valueFontSize) / 100;
                         var fontSize = Math.min(dimension / 5, 100) * fontScale;
@@ -581,6 +580,12 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                             return Number(strVale.trim());
                         });
                         data.colorMap = panel.colors;
+                        while (panel.colors.length < data.thresholds.length + 1) {
+                            data.colorMap.push(ctrl.randomColor());
+                        }
+                        while (panel.colors.length > data.thresholds.length + 1) {
+                            panel.colors.pop();
+                        }
                         var body = panel.gauge.show ? '' : getBigValueHtml();
                         if (panel.colorBackground) {
                             var color = getColorForValue(data, data.value);
