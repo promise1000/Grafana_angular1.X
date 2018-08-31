@@ -546,7 +546,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         series: {
           gauges: {
             gauge: {
-              min: panel.gauge.minValue,
+              min: panel.gauge.minValue, 
               max: panel.gauge.maxValue,
               background: { color: bgColor },
               border: { color: null },
@@ -653,7 +653,12 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       $.plot(plotCanvas, [plotSeries], options);
       
     }
-    // 视图渲染函数
+    // 视图渲染函数 
+    // 1、阈值增加了，但是一刷新就不能保存了，什么原因
+    // 2、当前值是负数呢？显示什么颜色
+    // 3、在圈圈里面的当前值增大增小时，不能等比缩放
+    // 4、圈圈外面的值怎么选择颜色呢？
+    // 5、顺时针/逆时针、填写角度
     function render() {
       if (!ctrl.data) {
         return;
@@ -783,4 +788,3 @@ function getColorForValue(data, value) {
 }
 
 export { SingleStatCtrl, SingleStatCtrl as PanelCtrl, getColorForValue };
-
