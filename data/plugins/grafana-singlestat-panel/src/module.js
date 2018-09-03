@@ -282,7 +282,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     this.panel.postfix = data.postfix || '';
                     this.panel.gauge.minValue = data.minValue || 0;
                     this.panel.gauge.maxValue = data.maxValue || 100;
-                    this.panel.thresholds = data.thresholds = '10,50,60';
+                    this.panel.thresholds = data.thresholds = '10,30,50';
                     this.panel.decimals = data.decimals || 0;
                     data.flotpairs = [];
                     var bigValueIndex = 0;
@@ -503,6 +503,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                                             show: panel.gauge.thresholdLabels,
                                             margin: thresholdMarkersWidth + 1,
                                             font: { size: thresholdLabelFontSize },
+                                            color: panel.gauge.color
                                         },
                                         show: panel.gauge.thresholdMarkers,
                                         width: thresholdMarkersWidth,

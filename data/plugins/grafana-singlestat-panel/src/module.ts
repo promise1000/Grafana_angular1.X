@@ -303,7 +303,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     this.panel.postfix =  data.postfix || ''
     this.panel.gauge.minValue =  data.minValue || 0
     this.panel.gauge.maxValue =  data.maxValue || 100
-    this.panel.thresholds =  data.thresholds = '10,50,60'
+    this.panel.thresholds =  data.thresholds = '10,30,50'
     this.panel.decimals =  data.decimals || 0
     
 
@@ -564,6 +564,8 @@ class SingleStatCtrl extends MetricsPanelCtrl {
                 show: panel.gauge.thresholdLabels,
                 margin: thresholdMarkersWidth + 1,
                 font: { size: thresholdLabelFontSize },
+                // 设置label的外圈的数字大小（gauge.color是从哪里设置的？）
+                color: panel.gauge.color
               },
               show: panel.gauge.thresholdMarkers,
               width: thresholdMarkersWidth,

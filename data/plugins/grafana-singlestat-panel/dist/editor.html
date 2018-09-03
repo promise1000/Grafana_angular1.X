@@ -139,9 +139,9 @@
       </div>
 
       <div class="gf-form">
-        <!-- 圈外面值的颜色设置（还没有实现） -->
-        <label class="gf-form-label width-9">Label Colors</label>
-        <spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.postfixColor" ng-change="ctrl.render()" ></spectrum-picker>
+        <!-- 圈外面值的颜色设置 -->
+        <label class="gf-form-label width-9">Label Color</label>
+        <spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.gauge.color" ng-change="ctrl.render()" ></spectrum-picker>
       </div>
 
       <gf-form-switch class="gf-form" label-class="width-9" switch-class="max-width-8" label="Threshold labels" checked="ctrl.panel.gauge.thresholdLabels" on-change="ctrl.render()"></gf-form-switch>
