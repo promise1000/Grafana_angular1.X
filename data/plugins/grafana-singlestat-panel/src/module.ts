@@ -69,7 +69,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     thresholds: '',
     colorBackground: false,
     colorValue: false,
-    colors: ['#0cc90c', 'rgba(237, 129, 40, 0.89)', '#d44a3a'],
+    colors: ['#0cc90c', '#ffb700', '#ff231e'],
     sparkline: {
       show: false,
       full: false,
@@ -103,7 +103,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   }
 // 初始化编辑的模块（字体，option和value mappings，单位）
   onInitEditMode() {
-    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '110%', '120%', '150%', '170%', '200%'];
+    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '110%', '120%', '150%', '170%', '200%','220%'];
     this.addEditorTab('Options', 'public/plugins/singlestat_ec/editor.html', 2);
     this.addEditorTab('Value Mappings', 'public/plugins/singlestat_ec/mappings.html', 3);
     this.unitFormats = kbn.getUnitFormats();
@@ -220,7 +220,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       this.panel.colors = ['rgba(71, 212, 59, 0.4)', 'rgba(245, 150, 40, 0.73)', 'rgba(225, 40, 40, 0.59)'];
     } else {
       this.panel.colorBackground = false;
-      this.panel.colors = ['rgba(50, 172, 45, 0.97)', 'rgba(237, 129, 40, 0.89)', 'rgba(245, 54, 54, 0.9)'];
+      this.panel.colors = ['rgba(50, 172, 45, 0.97)', '#ffb700', '#ff231e'];
     }
     this.render();
   }
@@ -231,6 +231,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     this.panel.colors[2] = tmp;
     this.render();
   }
+
 // 颜色改变的函数
   onColorChange(panelColorIndex) {
     return color => {

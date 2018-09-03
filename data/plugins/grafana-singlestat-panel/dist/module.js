@@ -95,7 +95,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         thresholds: '',
                         colorBackground: false,
                         colorValue: false,
-                        colors: ['#0cc90c', 'rgba(237, 129, 40, 0.89)', '#d44a3a'],
+                        colors: ['#0cc90c', '#ffb700', '#ff231e'],
                         sparkline: {
                             show: false,
                             full: false,
@@ -122,7 +122,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     return _this;
                 }
                 SingleStatCtrl.prototype.onInitEditMode = function () {
-                    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '110%', '120%', '150%', '170%', '200%'];
+                    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '110%', '120%', '150%', '170%', '200%', '220%'];
                     this.addEditorTab('Options', 'public/plugins/singlestat_ec/editor.html', 2);
                     this.addEditorTab('Value Mappings', 'public/plugins/singlestat_ec/mappings.html', 3);
                     this.unitFormats = kbn_1.default.getUnitFormats();
@@ -216,7 +216,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     }
                     else {
                         this.panel.colorBackground = false;
-                        this.panel.colors = ['rgba(50, 172, 45, 0.97)', 'rgba(237, 129, 40, 0.89)', 'rgba(245, 54, 54, 0.9)'];
+                        this.panel.colors = ['rgba(50, 172, 45, 0.97)', '#ffb700', '#ff231e'];
                     }
                     this.render();
                 };

@@ -1077,3 +1077,5 @@ t=2018-08-31T15:45:08+0800 lvl=info msg="Database table locked, sleeping then re
 t=2018-08-31T15:55:08+0800 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=0
 t=2018-08-31T16:05:08+0800 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=0
 t=2018-08-31T16:35:08+0800 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=0
+t=2018-08-31T16:45:08+0800 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=0
+t=2018-08-31T17:15:09+0800 lvl=info msg="Database table locked, sleeping then retrying" logger=sqlstore retry=0
