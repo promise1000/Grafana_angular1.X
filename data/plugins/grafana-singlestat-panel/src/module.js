@@ -90,7 +90,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         nullPointMode: 'connected',
                         valueName: 'avg',
                         prefixFontSize: '50%',
-                        valueFontSize: '80%',
+                        valueFontSize: '50%',
                         postfixFontSize: '50%',
                         thresholds: '',
                         colorBackground: false,
@@ -109,8 +109,13 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                             maxValue: 100,
                             thresholdMarkers: true,
                             thresholdLabels: false,
+                            color: '#ba43a9'
                         },
                         tableColumn: '',
+                        prefixLocations: ['left', 'top', 'right', 'bottom'],
+                        preLocation: 'left',
+                        postfixLocations: ['left', 'top', 'right', 'bottom'],
+                        postLocation: 'right'
                     };
                     lodash_1.default.defaults(_this.panel, _this.panelDefaults);
                     _this.events.on('data-received', _this.onDataReceived.bind(_this));
@@ -122,7 +127,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     return _this;
                 }
                 SingleStatCtrl.prototype.onInitEditMode = function () {
-                    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '110%', '120%', '150%', '170%', '200%', '220%'];
+                    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '120%', '140%', '160%', '180%', '200%', '220%'];
                     this.addEditorTab('Options', 'public/plugins/singlestat_ec/editor.html', 2);
                     this.addEditorTab('Value Mappings', 'public/plugins/singlestat_ec/mappings.html', 3);
                     this.unitFormats = kbn_1.default.getUnitFormats();
@@ -428,14 +433,12 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     function getBigValueHtml() {
                         var body = '<div class="singlestat-panel-value-container">';
                         if (panel.prefix) {
-                            var prefix = applyColoringThresholds(data.value, panel.prefix);
-                            body += getSpan('singlestat-panel-prefix', panel.prefixFontSize, prefix);
+                            body += getSpan('singlestat-panel-prefix', panel.prefixFontSize, panel.prefix);
                         }
                         var value = applyColoringThresholds(data.value, data.valueFormatted);
                         body += getSpan('singlestat-panel-value', panel.valueFontSize, value);
                         if (panel.postfix) {
-                            var postfix = applyColoringThresholds(data.value, panel.postfix);
-                            body += getSpan('singlestat-panel-postfix', panel.postfixFontSize, postfix);
+                            body += getSpan('singlestat-panel-postfix', panel.postfixFontSize, panel.postfix);
                         }
                         body += '</div>';
                         return body;
@@ -476,8 +479,16 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                             color: data.colorMap[data.colorMap.length - 1],
                         });
                         var bgColor = config_1.default.bootData.user.lightTheme ? 'rgb(230,230,230)' : 'rgb(38,38,38)';
-                        var fontScale = parseInt(panel.valueFontSize) / 100;
-                        var fontSize = Math.min(dimension / 5, 100) * fontScale;
+                        var fontScale;
+                        var fontSize;
+                        if (panel.valueFontSize.indexOf('vw') > -1) {
+                            fontScale = parseInt(panel.valueFontSize) / 85;
+                            fontSize = Math.min(dimension / 5, 85) * fontScale;
+                        }
+                        else {
+                            fontScale = parseInt(panel.valueFontSize) / 100;
+                            fontSize = Math.min(dimension / 5, 100) * fontScale;
+                        }
                         var gaugeWidthReduceRatio = panel.gauge.thresholdLabels ? 1.5 : 1;
                         var gaugeWidth = Math.min(dimension / 6, 60) / gaugeWidthReduceRatio;
                         var thresholdMarkersWidth = gaugeWidth / 5;
@@ -519,7 +530,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         };
                         console.log(jquery_1.default('#flotGagueValue0'));
                         jquery_1.default.plot(plotCanvas, [plotSeries], options);
-                        jquery_1.default('#flotGagueValue0').html('<span style="color:' + panel.prefixColor + ' ;font-size:' + panel.prefixFontSize + '" >' + panel.prefix + '</span><span style="color:' + getColorForValue(data, data.valueRounded) + ';font-size:' + fontSize + 'px">' + (+data.valueFormatted).toFixed(panel.decimals) + '</span><span style="color:' + panel.postfixColor + ' ;font-size:' + panel.postfixFontSize + '" class="postColor">' + panel.postfix + '</span>');
+                        jquery_1.default('#flotGagueValue0').html('<span style="color:' + panel.prefixColor + ' ;font-size:' + panel.prefixFontSize + '" class="' + panel.preLocation + '" >' + panel.prefix + '</span><span style="color:' + getColorForValue(data, data.valueRounded) + ';font-size:' + fontSize + 'px">' + (+data.valueFormatted).toFixed(panel.decimals) + '</span><span style="color:' + panel.postfixColor + ' ;font-size:' + panel.postfixFontSize + '" class="' + panel.postLocation + '">' + panel.postfix + '</span>');
                     }
                     function addSparkline() {
                         var width = elem.width() + 20;

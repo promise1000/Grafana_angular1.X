@@ -63,9 +63,11 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     mappingType: 1,
     nullPointMode: 'connected',
     valueName: 'avg',
+
     prefixFontSize: '50%',
-    valueFontSize: '80%',
+    valueFontSize: '50%',
     postfixFontSize: '50%',
+
     thresholds: '',
     colorBackground: false,
     colorValue: false,
@@ -83,9 +85,15 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       maxValue: 100,
       thresholdMarkers: true,
       thresholdLabels: false,
+      color: '#ba43a9'
     },
     tableColumn: '',
-
+    // 前缀的位置
+    prefixLocations: ['left','top','right','bottom'],
+    preLocation: 'left',
+    // 后缀的位置
+    postfixLocations: ['left','top','right','bottom'],
+    postLocation: 'right'
   };
 
   /** @ngInject */
@@ -103,7 +111,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   }
 // 初始化编辑的模块（字体，option和value mappings，单位）
   onInitEditMode() {
-    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '110%', '120%', '150%', '170%', '200%','220%'];
+    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '120%', '140%', '160%', '180%', '200%','220%'];
     this.addEditorTab('Options', 'public/plugins/singlestat_ec/editor.html', 2);
     this.addEditorTab('Value Mappings', 'public/plugins/singlestat_ec/mappings.html', 3);
     this.unitFormats = kbn.getUnitFormats();
@@ -353,8 +361,13 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         let formatFunc = kbn.valueFormats[this.panel.format];
         data.value = lastPoint[1];
         data.valueRounded = data.value;
+        // 从平台上新增9月3日
+        // data.valueFormatted = formatFunc(data.value, 0, 0);
         data.valueFormatted = formatFunc(data.value, this.dashboard.isTimezoneUtc());
       } else {
+        // 从平台上新增9月3日
+        // data.value = this.series[0].stats[this.panel.valueName];
+        // data.flotpairs = this.series[0].flotpairs;
         data.value = this.series[bigValueIndex].stats[this.panel.valueName];
         data.flotpairs = this.series[sparklineIndex].flotpairs;
 
@@ -472,16 +485,16 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       var body = '<div class="singlestat-panel-value-container">';
      
       if (panel.prefix) {
-        var prefix = applyColoringThresholds(data.value, panel.prefix);
-        body += getSpan('singlestat-panel-prefix', panel.prefixFontSize,prefix) ;
+        // var prefix = applyColoringThresholds(data.value, panel.prefix);
+        body += getSpan('singlestat-panel-prefix', panel.prefixFontSize,panel.prefix) ;
       }
 
       var value = applyColoringThresholds(data.value, data.valueFormatted);
       body += getSpan('singlestat-panel-value', panel.valueFontSize,value);
 
       if (panel.postfix) {
-        var postfix = applyColoringThresholds(data.value, panel.postfix);
-        body += getSpan('singlestat-panel-postfix', panel.postfixFontSize, postfix);
+        // var postfix = applyColoringThresholds(data.value, panel.postfix);
+        body += getSpan('singlestat-panel-postfix', panel.postfixFontSize, panel.postfix);
       }
 
       body += '</div>';
@@ -535,9 +548,20 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         color: data.colorMap[data.colorMap.length - 1],
       });
       var bgColor = config.bootData.user.lightTheme ? 'rgb(230,230,230)' : 'rgb(38,38,38)';
+      // 从平台上新增9月3日
+      var fontScale;
+      var fontSize;
+      if (panel.valueFontSize.indexOf('vw')>-1) {
+        fontScale = parseInt(panel.valueFontSize) / 85;
+        fontSize = Math.min(dimension / 5, 85) * fontScale;
+      } else {
+        fontScale = parseInt(panel.valueFontSize) / 100;
+        fontSize = Math.min(dimension / 5, 100) * fontScale;
+      }
 
-      var fontScale = parseInt(panel.valueFontSize) / 100;
-      var fontSize = Math.min(dimension / 5, 100) * fontScale;
+      // var fontScale = parseInt(panel.valueFontSize) / 100;
+      // var fontSize = Math.min(dimension / 5, 100) * fontScale;
+
       // Reduce gauge width if threshold labels enabled
       var gaugeWidthReduceRatio = panel.gauge.thresholdLabels ? 1.5 : 1;
       var gaugeWidth = Math.min(dimension / 6, 60) / gaugeWidthReduceRatio;
@@ -564,7 +588,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
                 show: panel.gauge.thresholdLabels,
                 margin: thresholdMarkersWidth + 1,
                 font: { size: thresholdLabelFontSize },
-                // 设置label的外圈的数字大小（gauge.color是从哪里设置的？）
+                // 设置label的外圈的数字大小
                 color: panel.gauge.color
               },
               show: panel.gauge.thresholdMarkers,
@@ -593,8 +617,8 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       };
       console.log($('#flotGagueValue0'))
       $.plot(plotCanvas, [plotSeries], options);
-      $('#flotGagueValue0').html('<span style="color:'+panel.prefixColor+' ;font-size:'+panel.prefixFontSize+'" >'+panel.prefix+'</span><span style="color:'+getColorForValue(data, data.valueRounded)+';font-size:'+fontSize+'px">'+(+data.valueFormatted).toFixed(panel.decimals)+'</span><span style="color:'+panel.postfixColor+' ;font-size:'+panel.postfixFontSize+'" class="postColor">'+panel.postfix+'</span>')
-      
+      $('#flotGagueValue0').html('<span style="color:'+panel.prefixColor+' ;font-size:'+panel.prefixFontSize+'" class="'+panel.preLocation+'" >'+panel.prefix+'</span><span style="color:'+getColorForValue(data, data.valueRounded)+';font-size:'+fontSize+'px">'+(+data.valueFormatted).toFixed(panel.decimals)+'</span><span style="color:'+panel.postfixColor+' ;font-size:'+panel.postfixFontSize+'" class="'+panel.postLocation+'">'+panel.postfix+'</span>')
+     
     }
 
 // 添加火花线设置
@@ -657,16 +681,47 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       
     }
     // 视图渲染函数 
-    // 1、阈值增加了，但是一刷新就不能保存了，什么原因
-    // 2、当前值是负数呢？显示什么颜色
-    // 3、在圈圈里面的当前值增大增小时，不能等比缩放
-    // 4、圈圈外面的值怎么选择颜色呢？
-    // 5、顺时针/逆时针、填写角度
     function render() {
       if (!ctrl.data) {
         return;
       }
       data = ctrl.data;
+
+      // 从平台上新增9月3日
+      // // get fontSizeValue
+      // if (panel.adjustableFontSize) {
+      //   panel.valueFontSize = panel.valueFontSizeVW;
+      //   panel.prefixFontSize = panel.prefixFontSizeVW;
+      //   panel.postfixFontSize = panel.postfixFontSizeVW;
+
+      //   for (var item in ctrl.fontSizes) {
+      //     if (ctrl.fontSizes[item].value === panel.valueFontSizeVW) {
+      //       panel.valueFontSizePX = ctrl.fontSizes[item].px;
+      //     }
+      //     if (ctrl.fontSizes[item].value === panel.prefixFontSizeVW) {
+      //       panel.prefixFontSizePX = ctrl.fontSizes[item].px;
+      //     }
+      //     if (ctrl.fontSizes[item].value === panel.postfixFontSizeVW) {
+      //       panel.postfixFontSizePX = ctrl.fontSizes[item].px;
+      //     }
+      //   }
+      // } else {
+      //   panel.valueFontSize = panel.valueFontSizePX;
+      //   panel.prefixFontSize = panel.prefixFontSizePX;
+      //   panel.postfixFontSize = panel.postfixFontSizePX;
+
+      //   for (item in ctrl.fontSizes) {
+      //     if (ctrl.fontSizes[item].px === panel.valueFontSizePX) {
+      //       panel.valueFontSizeVW = ctrl.fontSizes[item].value;
+      //     }
+      //     if (ctrl.fontSizes[item].px === panel.prefixFontSizePX) {
+      //       panel.prefixFontSizeVW = ctrl.fontSizes[item].value;
+      //     }
+      //     if (ctrl.fontSizes[item].px === panel.postfixFontSizePX) {
+      //       panel.postfixFontSizeVW = ctrl.fontSizes[item].value;
+      //     }
+      //   }
+      // }
 
       // get thresholds
       data.thresholds = panel.thresholds.split(',').map(function(strVale) {
@@ -706,6 +761,12 @@ class SingleStatCtrl extends MetricsPanelCtrl {
 
       if (panel.gauge.show) {
         addGauge();
+        // // 从平台上新增9月3日
+        // var panelValueFontSize = panel.valueFontSize;
+        // var str = panelValueFontSize.substr(panelValueFontSize.length-2,2);
+        // localStorage.setItem("singleStatFlag",str);
+        // addGauge();
+        // localStorage.setItem("singleStatFlag",null);
       }
 
       elem.toggleClass('pointer', panel.links.length > 0);
@@ -789,5 +850,7 @@ function getColorForValue(data, value) {
 
   return _.first(data.colorMap);
 }
+
+
 
 export { SingleStatCtrl, SingleStatCtrl as PanelCtrl, getColorForValue };

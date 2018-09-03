@@ -4,7 +4,7 @@
 
     <div class="gf-form-inline">
       <div class="gf-form" ng-show="ctrl.dataType === 'timeseries'">
-        <label class="gf-form-label width-6">Stat</label>
+        <label class="gf-form-label width-7">Stat</label>
         <div class="gf-form-select-wrapper width-10">
           <select class="gf-form-input" ng-model="ctrl.panel.valueName" ng-options="f.value as f.text for f in ctrl.valueNameOptions" ng-change="ctrl.refresh()"></select>
         </div>
@@ -18,49 +18,64 @@
       <div class="gf-form">
         <label class="gf-form-label width-6">Font size</label>
         <div class="gf-form-select-wrapper">
-          <select class="gf-form-input" ng-model="ctrl.panel.valueFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()"></select>
+          <select class="gf-form-input width-5" ng-model="ctrl.panel.valueFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()"></select>
         </div>
       </div>
     </div>
 
     <div class="gf-form-inline">
       <div class="gf-form">
-        <label class="gf-form-label width-6">Prefix</label>
+        <label class="gf-form-label width-7">Prefix</label>
         <input type="text" class="gf-form-input width-10" ng-model="ctrl.panel.prefix" ng-change="ctrl.render()" ng-model-onblur>
         <label class="gf-form-label width-6">Font size</label>
         <div class="gf-form-select-wrapper">
-          <select class="gf-form-input" ng-model="ctrl.panel.prefixFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()" ng-disabled="ctrl.canChangeFontSize()"></select>
+          <select class="gf-form-input width-5" ng-model="ctrl.panel.prefixFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()" ng-disabled="ctrl.canChangeFontSize()"></select>
         </div>
       </div>
     </div>
     <div class="gf-form">
+      <label class="gf-form-label width-8">Prefix Location</label>
+      <div class="gf-form-select-wrapper">
+        <!-- <select class="gf-form-input width-9" ng-model="ctrl.panel.preLocation" ng-options="f for f in ctrl.panel.prefixLocations" ng-change="ctrl.render()"></select> -->
+        <select class="gf-form-input width-9" ng-model="ctrl.panel.preLocation" ng-options = "item disable when ctrl.panel.postLocation === item for item in ctrl.panel.prefixLocations" ng-change="ctrl.render()"></select>
+ 
+      </div>
+
 			<label class="gf-form-label width-7">Prefix Color</label>
-			<spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.prefixColor" ng-change="ctrl.render()" ></spectrum-picker>
+      <spectrum-picker class="gf-form-input width-4" ng-model="ctrl.panel.prefixColor" ng-change="ctrl.render()" ></spectrum-picker>
 	  </div>
+    <div></div>
 
     <div class="gf-form">
-      <label class="gf-form-label width-6">Postfix</label>
+      <label class="gf-form-label width-7">Postfix</label>
       <input type="text" class="gf-form-input width-10" ng-model="ctrl.panel.postfix" ng-change="ctrl.render()" ng-model-onblur>
       <label class="gf-form-label width-6">Font size</label>
       <div class="gf-form-select-wrapper">
-        <select class="input-small gf-form-input" ng-model="ctrl.panel.postfixFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()" ng-disabled="ctrl.canChangeFontSize()"></select>
+        <select class="gf-form-input width-5" ng-model="ctrl.panel.postfixFontSize" ng-options="f for f in ctrl.fontSizes" ng-change="ctrl.render()" ng-disabled="ctrl.canChangeFontSize()"></select>
       </div>
     </div>
     <div class="gf-form">
-			<label class="gf-form-label width-7">Posefix Color</label>
-			<spectrum-picker class="gf-form-input width-3" ng-model="ctrl.panel.postfixColor" ng-change="ctrl.render()" ></spectrum-picker>
-	  </div>
+      <label class="gf-form-label width-8">Postfix Location</label>
+      <div class="gf-form-select-wrapper">
+        <!-- <select class="gf-form-input width-9" ng-model="ctrl.panel.postLocation" ng-options="f for f in ctrl.panel.postfixLocations" ng-change="ctrl.render()"></select> -->
+        <select class="gf-form-input width-9" ng-model="ctrl.panel.postLocation"  ng-options = "item disable when ctrl.panel.preLocation === item for item in ctrl.panel.postfixLocations" ng-change="ctrl.render()"></select>
+  
+      </div>
 
-    <div class="gf-form">
-      <label class="gf-form-label width-6">Unit</label>
-      <div class="gf-form-dropdown-typeahead width-10" ng-model="ctrl.panel.format" dropdown-typeahead2="ctrl.unitFormats" dropdown-typeahead-on-select="ctrl.setUnitFormat($subItem)"></div>
-   
-      <label class="gf-form-label width-6">Decimals</label>
-      <input type="number" class="gf-form-input width-6" placeholder="auto" data-placement="right" bs-tooltip="'Override automatic decimal precision for legend and tooltips'" ng-model="ctrl.panel.decimals" ng-change="ctrl.render()" ng-model-onblur>
+			<label class="gf-form-label width-7">Postfix Color</label>
+			<spectrum-picker class="gf-form-input width-4" ng-model="ctrl.panel.postfixColor" ng-change="ctrl.render()" ></spectrum-picker>
     </div>
 
     <div class="gf-form">
-      <label class="gf-form-label width-6">Series</label>
+      <label class="gf-form-label width-7">Unit</label>
+      <div class="gf-form-dropdown-typeahead width-10" ng-model="ctrl.panel.format" dropdown-typeahead2="ctrl.unitFormats" dropdown-typeahead-on-select="ctrl.setUnitFormat($subItem)"></div>
+   
+      <label class="gf-form-label width-6">Decimals</label>
+      <input type="number" class="gf-form-input width-5" placeholder="auto" data-placement="right" bs-tooltip="'Override automatic decimal precision for legend and tooltips'" ng-model="ctrl.panel.decimals" ng-change="ctrl.render()" ng-model-onblur>
+    </div>
+
+    <div class="gf-form">
+      <label class="gf-form-label width-7">Series</label>
       <div class="gf-form-select-wrapper">
         <select class="input-small gf-form-input" ng-model="ctrl.panel.seriesIndex"  ng-model="ctrl.panel.seriesIndex" ng-options="f for f in ['A', 'B']" ng-change="ctrl.render()"></select>
       </div>
