@@ -141,7 +141,6 @@ System.register(['app/plugins/sdk', 'lodash', 'app/core/utils/kbn', 'app/core/ti
             postfix: "mg/L",
             thresholds: "25,50",
             value: '30',
-            valueDecimals: " ",
             decimals: 2
           };
           _this.datanames = {

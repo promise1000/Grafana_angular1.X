@@ -75,7 +75,6 @@ export class ProgressBarCtrl extends MetricsPanelCtrl {
         postfix:"mg/L",
         thresholds:"25,50",
         value:'30',
-        valueDecimals:" ",
         decimals: 2
       }
     this.datanames = {

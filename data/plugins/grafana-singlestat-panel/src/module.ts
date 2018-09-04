@@ -313,8 +313,9 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     this.panel.gauge.maxValue =  data.maxValue || 100
     this.panel.thresholds =  data.thresholds = '10,30,50'
     this.panel.decimals =  data.decimals || 0
-    
+ 
 
+    
     data.flotpairs = [];
     var bigValueIndex = 0;
     var sparklineIndex = bigValueIndex;
