@@ -283,12 +283,14 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                 };
                 SingleStatCtrl.prototype.setValues = function (data) {
                     console.log(data);
-                    this.panel.prefix = data.prefix || '';
-                    this.panel.postfix = data.postfix || '';
-                    this.panel.gauge.minValue = data.minValue || 0;
-                    this.panel.gauge.maxValue = data.maxValue || 100;
-                    this.panel.thresholds = data.thresholds = '10,30,50';
-                    this.panel.decimals = data.decimals || 0;
+                    for (var i = 0; i < data.length; i++) {
+                        this.panel.prefix = data[i].prefix || '';
+                        this.panel.postfix = data[i].postfix || '';
+                        this.panel.gauge.minValue = data[i].min || 0;
+                        this.panel.gauge.maxValue = data[i].max || 100;
+                        this.panel.thresholds = data[i].thresholds;
+                        this.panel.decimals = data[i].decimal || 0;
+                    }
                     data.flotpairs = [];
                     var bigValueIndex = 0;
                     var sparklineIndex = bigValueIndex;
@@ -407,7 +409,6 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     this.panel.rangeMaps.push({ from: '', to: '', text: '' });
                 };
                 SingleStatCtrl.prototype.link = function (scope, elem, attrs, ctrl) {
-                    console.log(elem);
                     var $location = this.$location;
                     var linkSrv = this.linkSrv;
                     var $timeout = this.$timeout;

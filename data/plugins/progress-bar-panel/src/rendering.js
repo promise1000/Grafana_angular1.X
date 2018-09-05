@@ -13,7 +13,9 @@ export default function link (scope, elem, attrs, ctrl) {
     progressBar(ctrl);
   });
 
-  function progressBar(ctrl) {
+  function progressBar(ctrl) { 
+    // ctrl里面返回的data就是[],后台返回的在response里面，这个ctrl.data是解析过的吧
+    console.log('ctrl是啥',ctrl);
     // 获取bar的自适应高度
     var width = elem.width();
     var height = elem.height();
@@ -28,24 +30,30 @@ export default function link (scope, elem, attrs, ctrl) {
     var content = '<div class="bar-container" style="padding: 10px 27px;">';
     // data后台的相应值
     var data = ctrl.data;
+    console.log('CtrlData是',ctrl.data)
     // 重复引用赋值(简化引用操作)
     var bars = ctrl.bars
      // 循环出来后台获取的值
-    // for(let i=0;i<data.length;i++){
-    //   var obj={};
-    //   obj['decimals'] = data[i].decimals
-    //   obj['thresholds'] = data[i].thresholds
-    //   obj['label'] = ctrl.panel.barColor.slice(0,data[i].thresholds.split(',').length+2)
-    //   obj['postfix'] = data[i].postfix
-    //   obj['prefix'] = data[i].prefix
-    //   obj['min'] = data[i].min
-    //   obj['max'] = data[i].max
-    //   obj['value'] = data[i].value
-    //   for(let item in data[i]){
-    //     obj[item] = data[i][item]
-    //   }
-    //   bars[data[i].name]= obj
-    // }
+     console.log("后台",data)
+    for(let i=0;i<data.length;i++){
+      var obj={};
+      obj['decimals'] = data[i].decimal
+      obj['thresholds'] = data[i].thresholds
+      obj['label'] = ctrl.panel.barColor.slice(0,data[i].thresholds.split(',').length+2)
+      obj['postfix'] = data[i].postfix
+      obj['prefix'] = data[i].prefix
+      obj['min'] = data[i].min
+      obj['max'] = data[i].max 
+      console.log('zhi',data[i].datapoints) 
+      // obj['value'] = data[i].datapoints[0]
+      // 
+      // 
+      // for(let item in data[i]){
+      //   obj[item] = data[i].target
+      // }
+      bars[data[i].target]= obj
+    }
+
     // bar文字大小
     var fontSize = ctrl.adjFontSize ? ctrl.fontSize : '0.8vw';
     // 循环bar对象

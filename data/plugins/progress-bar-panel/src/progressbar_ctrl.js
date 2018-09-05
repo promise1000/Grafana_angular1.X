@@ -57,26 +57,26 @@ export class ProgressBarCtrl extends MetricsPanelCtrl {
     };
     // 初始化bar对象
     this.bars = {}
-    this.bars['pH (0~14)'] = {
-      label:["rgba(12, 201, 12, 0.9)","rgba(255, 183, 0, 0.89)","rgba(255, 35, 30, 0.97)"],
-      max:"14",
-      min:'0',
-      prefix:" ",
-      postfix:" ",
-      thresholds:"6,8",
-      value:'7.5',
-      decimals: 2
-    }
-    this.bars['DO (0~50 mg/L)'] = {
-        label:["rgba(12, 201, 12, 0.9)","rgba(255, 183, 0, 0.89)","rgba(255, 35, 30, 0.97)"],
-        max:"75",
-        min:'0',
-        prefix:" ",
-        postfix:"mg/L",
-        thresholds:"25,50",
-        value:'30',
-        decimals: 2
-      }
+  //  this.bars['pH (0~14)'] = {
+    // label:["rgba(12, 201, 12, 0.9)","rgba(255, 183, 0, 0.89)","rgba(255, 35, 30, 0.97)"],
+    //   max:"14",
+    //   min:'0',
+    //   prefix:" ",
+    //   postfix:" ",
+    //   thresholds:"6,8",
+    //   value:'7.5',
+    //   decimals: 2
+  //  }
+    // this.bars['DO (0~50 mg/L)'] = {
+    //    label:["rgba(12, 201, 12, 0.9)","rgba(255, 183, 0, 0.89)","rgba(255, 35, 30, 0.97)"],
+    //     max:"75",
+    //     min:'0',
+    //     prefix:" ",
+    //     postfix:"mg/L",
+    //     thresholds:"25,50",
+    //     value:'30',
+    //     decimals: 2
+    //  }
     this.datanames = {
       default: ''
     };

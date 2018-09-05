@@ -232,7 +232,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     }
     this.render();
   }
-// 啥意思？
+// 
   invertColorOrder() {
     var tmp = this.panel.colors[0];
     this.panel.colors[0] = this.panel.colors[2];
@@ -307,12 +307,15 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   setValues(data) {
     console.log(data);
     // 把后台的值赋值给前端变量
-    this.panel.prefix =  data.prefix || ''
-    this.panel.postfix =  data.postfix || ''
-    this.panel.gauge.minValue =  data.minValue || 0
-    this.panel.gauge.maxValue =  data.maxValue || 100
-    this.panel.thresholds =  data.thresholds = '10,30,50'
-    this.panel.decimals =  data.decimals || 0
+    for (var i=0;i<data.length;i++){
+      this.panel.prefix =  data[i].prefix || ''
+      this.panel.postfix =  data[i].postfix || ''
+      this.panel.gauge.minValue =  data[i].min || 0
+      this.panel.gauge.maxValue =  data[i].max || 100
+      this.panel.thresholds =  data[i].thresholds
+      this.panel.decimals =  data[i].decimal || 0
+    }
+   
  
 
     
@@ -454,7 +457,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   }
 
   link(scope, elem, attrs, ctrl) {
-    console.log(elem)
     var $location = this.$location;
     var linkSrv = this.linkSrv;
     var $timeout = this.$timeout;
