@@ -232,13 +232,13 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     }
     this.render();
   }
-// 
-  invertColorOrder() {
-    var tmp = this.panel.colors[0];
-    this.panel.colors[0] = this.panel.colors[2];
-    this.panel.colors[2] = tmp;
-    this.render();
-  }
+// 颠倒颜色的顺序
+  // invertColorOrder() {
+  //   var tmp = this.panel.colors[0];
+  //   this.panel.colors[0] = this.panel.colors[2];
+  //   this.panel.colors[2] = tmp;
+  //   this.render();
+  // }
 
 // 颜色改变的函数
   onColorChange(panelColorIndex) {
@@ -485,10 +485,11 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     }
 //
     function getBigValueHtml() {
+      console.log('getbigValue的data',data);
       var body = '<div class="singlestat-panel-value-container">';
      
       if (panel.prefix) {
-        // var prefix = applyColoringThresholds(data.value, panel.prefix);
+        var prefix = applyColoringThresholds(data.value, panel.prefix);
         body += getSpan('singlestat-panel-prefix', panel.prefixFontSize,panel.prefix) ;
       }
 
@@ -496,7 +497,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       body += getSpan('singlestat-panel-value', panel.valueFontSize,value);
 
       if (panel.postfix) {
-        // var postfix = applyColoringThresholds(data.value, panel.postfix);
+        var postfix = applyColoringThresholds(data.value, panel.postfix);
         body += getSpan('singlestat-panel-postfix', panel.postfixFontSize, panel.postfix);
       }
 
@@ -519,7 +520,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       var height = elem.height();
       // Allow to use a bit more space for wide gauges
       // 尺寸
-      // 
       var dimension = Math.min(width, height * 1.3);
 
       ctrl.invalidGaugeRange = false;
@@ -551,19 +551,9 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         color: data.colorMap[data.colorMap.length - 1],
       });
       var bgColor = config.bootData.user.lightTheme ? 'rgb(230,230,230)' : 'rgb(38,38,38)';
-      // 从平台上新增9月3日
-      var fontScale;
-      var fontSize;
-      if (panel.valueFontSize.indexOf('vw')>-1) {
-        fontScale = parseInt(panel.valueFontSize) / 85;
-        fontSize = Math.min(dimension / 5, 85) * fontScale;
-      } else {
-        fontScale = parseInt(panel.valueFontSize) / 100;
-        fontSize = Math.min(dimension / 5, 100) * fontScale;
-      }
 
-      // var fontScale = parseInt(panel.valueFontSize) / 100;
-      // var fontSize = Math.min(dimension / 5, 100) * fontScale;
+      var fontScale = parseInt(panel.valueFontSize) / 100;
+      var fontSize = Math.min(dimension / 5, 100) * fontScale;
 
       // Reduce gauge width if threshold labels enabled
       var gaugeWidthReduceRatio = panel.gauge.thresholdLabels ? 1.5 : 1;
@@ -690,42 +680,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       }
       data = ctrl.data;
 
-      // 从平台上新增9月3日
-      // // get fontSizeValue
-      // if (panel.adjustableFontSize) {
-      //   panel.valueFontSize = panel.valueFontSizeVW;
-      //   panel.prefixFontSize = panel.prefixFontSizeVW;
-      //   panel.postfixFontSize = panel.postfixFontSizeVW;
-
-      //   for (var item in ctrl.fontSizes) {
-      //     if (ctrl.fontSizes[item].value === panel.valueFontSizeVW) {
-      //       panel.valueFontSizePX = ctrl.fontSizes[item].px;
-      //     }
-      //     if (ctrl.fontSizes[item].value === panel.prefixFontSizeVW) {
-      //       panel.prefixFontSizePX = ctrl.fontSizes[item].px;
-      //     }
-      //     if (ctrl.fontSizes[item].value === panel.postfixFontSizeVW) {
-      //       panel.postfixFontSizePX = ctrl.fontSizes[item].px;
-      //     }
-      //   }
-      // } else {
-      //   panel.valueFontSize = panel.valueFontSizePX;
-      //   panel.prefixFontSize = panel.prefixFontSizePX;
-      //   panel.postfixFontSize = panel.postfixFontSizePX;
-
-      //   for (item in ctrl.fontSizes) {
-      //     if (ctrl.fontSizes[item].px === panel.valueFontSizePX) {
-      //       panel.valueFontSizeVW = ctrl.fontSizes[item].value;
-      //     }
-      //     if (ctrl.fontSizes[item].px === panel.prefixFontSizePX) {
-      //       panel.prefixFontSizeVW = ctrl.fontSizes[item].value;
-      //     }
-      //     if (ctrl.fontSizes[item].px === panel.postfixFontSizePX) {
-      //       panel.postfixFontSizeVW = ctrl.fontSizes[item].value;
-      //     }
-      //   }
-      // }
-
       // get thresholds
       data.thresholds = panel.thresholds.split(',').map(function(strVale) {
         return Number(strVale.trim());
@@ -764,12 +718,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
 
       if (panel.gauge.show) {
         addGauge();
-        // // 从平台上新增9月3日
-        // var panelValueFontSize = panel.valueFontSize;
-        // var str = panelValueFontSize.substr(panelValueFontSize.length-2,2);
-        // localStorage.setItem("singleStatFlag",str);
-        // addGauge();
-        // localStorage.setItem("singleStatFlag",null);
       }
 
       elem.toggleClass('pointer', panel.links.length > 0);
@@ -843,7 +791,7 @@ function getColorForValue(data, value) {
   if (!_.isFinite(value)) {
     return null;
   }
-// 阈值减少一个，颜色就减一个
+
   for (var i = data.thresholds.length; i > 0; i--) {
     if (value >= data.thresholds[i - 1]) {
       return data.colorMap[i];

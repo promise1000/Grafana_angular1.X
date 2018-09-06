@@ -225,12 +225,6 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     }
                     this.render();
                 };
-                SingleStatCtrl.prototype.invertColorOrder = function () {
-                    var tmp = this.panel.colors[0];
-                    this.panel.colors[0] = this.panel.colors[2];
-                    this.panel.colors[2] = tmp;
-                    this.render();
-                };
                 SingleStatCtrl.prototype.onColorChange = function (panelColorIndex) {
                     var _this = this;
                     return function (color) {
@@ -432,13 +426,16 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         return '<span class="' + className + '" style="font-size:' + fontSize + '">' + value + '</span>';
                     }
                     function getBigValueHtml() {
+                        console.log('getbigValue的data', data);
                         var body = '<div class="singlestat-panel-value-container">';
                         if (panel.prefix) {
+                            var prefix = applyColoringThresholds(data.value, panel.prefix);
                             body += getSpan('singlestat-panel-prefix', panel.prefixFontSize, panel.prefix);
                         }
                         var value = applyColoringThresholds(data.value, data.valueFormatted);
                         body += getSpan('singlestat-panel-value', panel.valueFontSize, value);
                         if (panel.postfix) {
+                            var postfix = applyColoringThresholds(data.value, panel.postfix);
                             body += getSpan('singlestat-panel-postfix', panel.postfixFontSize, panel.postfix);
                         }
                         body += '</div>';
@@ -480,16 +477,8 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                             color: data.colorMap[data.colorMap.length - 1],
                         });
                         var bgColor = config_1.default.bootData.user.lightTheme ? 'rgb(230,230,230)' : 'rgb(38,38,38)';
-                        var fontScale;
-                        var fontSize;
-                        if (panel.valueFontSize.indexOf('vw') > -1) {
-                            fontScale = parseInt(panel.valueFontSize) / 85;
-                            fontSize = Math.min(dimension / 5, 85) * fontScale;
-                        }
-                        else {
-                            fontScale = parseInt(panel.valueFontSize) / 100;
-                            fontSize = Math.min(dimension / 5, 100) * fontScale;
-                        }
+                        var fontScale = parseInt(panel.valueFontSize) / 100;
+                        var fontSize = Math.min(dimension / 5, 100) * fontScale;
                         var gaugeWidthReduceRatio = panel.gauge.thresholdLabels ? 1.5 : 1;
                         var gaugeWidth = Math.min(dimension / 6, 60) / gaugeWidthReduceRatio;
                         var thresholdMarkersWidth = gaugeWidth / 5;
