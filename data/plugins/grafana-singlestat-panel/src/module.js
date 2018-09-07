@@ -151,6 +151,14 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         this.series = dataList.map(this.seriesHandler.bind(this));
                         this.setValues(data);
                     }
+                    for (var i = 0; i < dataList.length; i++) {
+                        this.panel.prefix = dataList[i].prefix || '';
+                        this.panel.postfix = dataList[i].postfix || '';
+                        this.panel.gauge.minValue = parseFloat(dataList[i].min) || 0;
+                        this.panel.gauge.maxValue = parseFloat(dataList[i].max) || 100;
+                        this.panel.thresholds = dataList[i].thresholds;
+                        this.panel.decimals = dataList[i].decimal || 0;
+                    }
                     this.data = data;
                     this.render();
                 };
@@ -277,14 +285,6 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                 };
                 SingleStatCtrl.prototype.setValues = function (data) {
                     console.log(data);
-                    for (var i = 0; i < data.length; i++) {
-                        this.panel.prefix = data[i].prefix || '';
-                        this.panel.postfix = data[i].postfix || '';
-                        this.panel.gauge.minValue = data[i].min || 0;
-                        this.panel.gauge.maxValue = data[i].max || 100;
-                        this.panel.thresholds = data[i].thresholds;
-                        this.panel.decimals = data[i].decimal || 0;
-                    }
                     data.flotpairs = [];
                     var bigValueIndex = 0;
                     var sparklineIndex = bigValueIndex;

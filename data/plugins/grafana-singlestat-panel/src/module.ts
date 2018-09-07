@@ -125,7 +125,7 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   onDataError(err) {
     this.onDataReceived([]);
   }
-// 在metrics设置里面的选择timeseries展示还是选择table展示
+// data
   onDataReceived(dataList) {
     const data: any = {};
     if (dataList.length > 0 && dataList[0].type === 'table') {
@@ -136,6 +136,15 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       this.dataType = 'timeseries';
       this.series = dataList.map(this.seriesHandler.bind(this));
       this.setValues(data);
+    }
+    // 把后台的值赋值给前端变量
+    for (var i=0;i<dataList.length;i++){
+      this.panel.prefix =  dataList[i].prefix || ''
+      this.panel.postfix =  dataList[i].postfix || ''
+      this.panel.gauge.minValue =  parseFloat(dataList[i].min) || 0
+      this.panel.gauge.maxValue =  parseFloat(dataList[i].max) || 100
+      this.panel.thresholds =  dataList[i].thresholds
+      this.panel.decimals =  dataList[i].decimal || 0
     }
     this.data = data;
     this.render();
@@ -307,14 +316,14 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   setValues(data) {
     console.log(data);
     // 把后台的值赋值给前端变量
-    for (var i=0;i<data.length;i++){
-      this.panel.prefix =  data[i].prefix || ''
-      this.panel.postfix =  data[i].postfix || ''
-      this.panel.gauge.minValue =  data[i].min || 0
-      this.panel.gauge.maxValue =  data[i].max || 100
-      this.panel.thresholds =  data[i].thresholds
-      this.panel.decimals =  data[i].decimal || 0
-    }
+    // for (var i=0;i<data.length;i++){
+    //   this.panel.prefix =  data[i].prefix || ''
+    //   this.panel.postfix =  data[i].postfix || ''
+    //   this.panel.gauge.minValue =  data[i].min || 0
+    //   this.panel.gauge.maxValue =  data[i].max || 100
+    //   this.panel.thresholds =  data[i].thresholds
+    //   this.panel.decimals =  data[i].decimal || 0
+    // }
    
  
 

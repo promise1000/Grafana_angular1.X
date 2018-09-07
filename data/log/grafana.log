@@ -1826,3 +1826,136 @@ t=2018-09-06T19:43:22+0800 lvl=info msg="Initializing Stream Manager"
 t=2018-09-06T19:43:22+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
 t=2018-09-06T19:43:24+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=17 size=20011 referer=
 t=2018-09-06T19:43:31+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=236 size=148 referer="http://localhost:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-09-06T19:46:19+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=37 size=20011 referer=
+t=2018-09-06T19:46:23+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=247 size=148 referer="http://localhost:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit&tab=metrics"
+t=2018-09-07T08:47:16+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-09-07T08:47:16+0800 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular/conf/defaults.ini
+t=2018-09-07T08:47:16+0800 lvl=info msg="Path Home" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular
+t=2018-09-07T08:47:16+0800 lvl=info msg="Path Data" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data
+t=2018-09-07T08:47:16+0800 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data\\log
+t=2018-09-07T08:47:16+0800 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data\\plugins
+t=2018-09-07T08:47:16+0800 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\conf\\provisioning
+t=2018-09-07T08:47:16+0800 lvl=info msg="App mode production" logger=settings
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-09-07T08:47:16+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-09-07T08:47:16+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-09-07T08:47:16+0800 lvl=info msg="Registering plugin" logger=plugins name="Singlestat EC"
+t=2018-09-07T08:47:16+0800 lvl=info msg="Registering plugin" logger=plugins name="Radar Graph"
+t=2018-09-07T08:47:16+0800 lvl=info msg="Registering plugin" logger=plugins name="D3 Radar Chart"
+t=2018-09-07T08:47:16+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-09-07T08:47:16+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-09-07T08:47:16+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-09-07T08:49:46+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=13 size=14253 referer=
+t=2018-09-07T08:56:23+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/tsdb/testdata/random-walk status=401 remote_addr=[::1] time_ms=1 size=26 referer=http://localhost:3000/dashboard/new
+t=2018-09-07T08:56:32+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/login status=302 remote_addr=[::1] time_ms=16 size=24 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit"
+t=2018-09-07T10:36:13+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=312 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1&tab=metrics"
+t=2018-09-07T11:32:51+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-09-07T11:32:51+0800 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular/conf/defaults.ini
+t=2018-09-07T11:32:51+0800 lvl=info msg="Path Home" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular
+t=2018-09-07T11:32:51+0800 lvl=info msg="Path Data" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data
+t=2018-09-07T11:32:51+0800 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data\\log
+t=2018-09-07T11:32:51+0800 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data\\plugins
+t=2018-09-07T11:32:51+0800 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\conf\\provisioning
+t=2018-09-07T11:32:51+0800 lvl=info msg="App mode production" logger=settings
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-09-07T11:32:51+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-09-07T11:32:51+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-09-07T11:32:51+0800 lvl=info msg="Registering plugin" logger=plugins name="Singlestat EC"
+t=2018-09-07T11:32:51+0800 lvl=info msg="Registering plugin" logger=plugins name="Radar Graph"
+t=2018-09-07T11:32:51+0800 lvl=info msg="Registering plugin" logger=plugins name="D3 Radar Chart"
+t=2018-09-07T11:32:51+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-09-07T11:32:51+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-09-07T11:32:51+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-09-07T13:19:04+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-09-07T13:19:04+0800 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular/conf/defaults.ini
+t=2018-09-07T13:19:04+0800 lvl=info msg="Path Home" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular
+t=2018-09-07T13:19:04+0800 lvl=info msg="Path Data" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data
+t=2018-09-07T13:19:04+0800 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data\\log
+t=2018-09-07T13:19:04+0800 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data\\plugins
+t=2018-09-07T13:19:04+0800 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\conf\\provisioning
+t=2018-09-07T13:19:04+0800 lvl=info msg="App mode production" logger=settings
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-09-07T13:19:04+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-09-07T13:19:04+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-09-07T13:19:04+0800 lvl=info msg="Registering plugin" logger=plugins name="Radar Graph"
+t=2018-09-07T13:19:04+0800 lvl=info msg="Registering plugin" logger=plugins name="D3 Radar Chart"
+t=2018-09-07T13:19:04+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-09-07T13:19:04+0800 lvl=info msg="Registering plugin" logger=plugins name="Singlestat EC"
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-09-07T13:19:04+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-09-07T13:19:04+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-09-07T13:19:20+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=6 size=14039 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit"
+t=2018-09-07T13:19:22+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=10 size=14039 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit"
+t=2018-09-07T13:19:24+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/api/tsdb/testdata/random-walk status=401 remote_addr=[::1] time_ms=2 size=26 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&tab=metrics&orgId=0"
+t=2018-09-07T13:19:31+0800 lvl=info msg="Request Completed" logger=context userId=0 orgId=0 uname= method=GET path=/login status=302 remote_addr=[::1] time_ms=11 size=24 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&tab=metrics&orgId=0"
+t=2018-09-07T13:19:42+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=357 size=148 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&orgId=1"
+t=2018-09-07T14:54:22+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=74 size=148 referer="http://localhost:3000/dashboard/new?panelId=4&fullscreen&edit&orgId=1"
+t=2018-09-07T15:12:58+0800 lvl=info msg="Starting Grafana" logger=server version=5.2.2 commit=aeaf7b2 compiled=2018-07-25T19:17:28+0800
+t=2018-09-07T15:12:58+0800 lvl=info msg="Config loaded from" logger=settings file=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular/conf/defaults.ini
+t=2018-09-07T15:12:58+0800 lvl=info msg="Path Home" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular
+t=2018-09-07T15:12:58+0800 lvl=info msg="Path Data" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data
+t=2018-09-07T15:12:58+0800 lvl=info msg="Path Logs" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data\\log
+t=2018-09-07T15:12:58+0800 lvl=info msg="Path Plugins" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\data\\plugins
+t=2018-09-07T15:12:58+0800 lvl=info msg="Path Provisioning" logger=settings path=C:\\Users\\fangfang.cao\\Desktop\\mytest\\fang_angular\\conf\\provisioning
+t=2018-09-07T15:12:58+0800 lvl=info msg="App mode production" logger=settings
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing SqlStore" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Connecting to DB" logger=sqlstore dbtype=sqlite3
+t=2018-09-07T15:12:58+0800 lvl=info msg="Starting DB migration" logger=migrator
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing SearchService" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing PluginManager" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Starting plugin search" logger=plugins
+t=2018-09-07T15:12:58+0800 lvl=info msg="Registering plugin" logger=plugins name="progress bar"
+t=2018-09-07T15:12:58+0800 lvl=info msg="Registering plugin" logger=plugins name="Singlestat EC"
+t=2018-09-07T15:12:58+0800 lvl=info msg="Registering plugin" logger=plugins name="Radar Graph"
+t=2018-09-07T15:12:58+0800 lvl=info msg="Registering plugin" logger=plugins name="D3 Radar Chart"
+t=2018-09-07T15:12:58+0800 lvl=info msg="Registering plugin" logger=plugins name=SimpleJson
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing InternalMetricsService" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing AlertingService" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing HTTPServer" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing CleanUpService" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing NotificationService" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing ProvisioningService" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing RenderingService" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing TracingService" logger=server
+t=2018-09-07T15:12:58+0800 lvl=info msg="Initializing Stream Manager"
+t=2018-09-07T15:12:58+0800 lvl=info msg="HTTP Server Listen" logger=http.server address=0.0.0.0:3000 protocol=http subUrl= socket=
+t=2018-09-07T15:13:02+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=68 size=20011 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&tab=metrics&orgId=0"
+t=2018-09-07T15:13:05+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=33 size=20011 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&tab=metrics&orgId=0"
+t=2018-09-07T15:13:11+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=4 size=20011 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&tab=metrics&orgId=0"
+t=2018-09-07T15:13:13+0800 lvl=info msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=GET path=/dashboard/new status=404 remote_addr=[::1] time_ms=15 size=20011 referer="http://localhost:3000/dashboard/new?panelId=2&fullscreen&edit&tab=metrics&orgId=0"
+t=2018-09-07T15:13:23+0800 lvl=eror msg="Request Completed" logger=context userId=1 orgId=1 uname=admin method=POST path=/api/datasources/proxy/1/query status=500 remote_addr=[::1] time_ms=698 size=148 referer="http://localhost:3000/dashboard/new?orgId=1&panelId=2&fullscreen&edit"
