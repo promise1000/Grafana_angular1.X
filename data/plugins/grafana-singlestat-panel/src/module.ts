@@ -111,7 +111,8 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   }
 // 初始化编辑的模块（字体，option和value mappings，单位）
   onInitEditMode() {
-    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '120%', '140%', '160%', '180%', '200%','220%'];
+    // this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '120%', '140%', '160%', '180%', '200%','220%'];
+    this.fontSizes = ['15%', '25%', '35%', '45%', '50%','55%', '75%'];
     this.addEditorTab('Options', 'public/plugins/singlestat_ec/editor.html', 2);
     this.addEditorTab('Value Mappings', 'public/plugins/singlestat_ec/mappings.html', 3);
     this.unitFormats = kbn.getUnitFormats();
@@ -314,20 +315,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
   }
 // 设置后台的data
   setValues(data) {
-    console.log(data);
-    // 把后台的值赋值给前端变量
-    // for (var i=0;i<data.length;i++){
-    //   this.panel.prefix =  data[i].prefix || ''
-    //   this.panel.postfix =  data[i].postfix || ''
-    //   this.panel.gauge.minValue =  data[i].min || 0
-    //   this.panel.gauge.maxValue =  data[i].max || 100
-    //   this.panel.thresholds =  data[i].thresholds
-    //   this.panel.decimals =  data[i].decimal || 0
-    // }
-   
- 
-
-    
     data.flotpairs = [];
     var bigValueIndex = 0;
     var sparklineIndex = bigValueIndex;

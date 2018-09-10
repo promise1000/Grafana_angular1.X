@@ -127,7 +127,7 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     return _this;
                 }
                 SingleStatCtrl.prototype.onInitEditMode = function () {
-                    this.fontSizes = ['20%', '30%', '50%', '70%', '80%', '100%', '120%', '140%', '160%', '180%', '200%', '220%'];
+                    this.fontSizes = ['15%', '25%', '35%', '45%', '50%', '55%', '75%'];
                     this.addEditorTab('Options', 'public/plugins/singlestat_ec/editor.html', 2);
                     this.addEditorTab('Value Mappings', 'public/plugins/singlestat_ec/mappings.html', 3);
                     this.unitFormats = kbn_1.default.getUnitFormats();
@@ -284,7 +284,6 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                     return result;
                 };
                 SingleStatCtrl.prototype.setValues = function (data) {
-                    console.log(data);
                     data.flotpairs = [];
                     var bigValueIndex = 0;
                     var sparklineIndex = bigValueIndex;
