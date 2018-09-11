@@ -146,6 +146,10 @@ class SingleStatCtrl extends MetricsPanelCtrl {
       this.panel.gauge.maxValue =  parseFloat(dataList[i].max) || 100
       this.panel.thresholds =  dataList[i].thresholds
       this.panel.decimals =  dataList[i].decimal || 0
+
+      this.panel.title = dataList[i].title
+      this.panel.description = dataList[i].titleDesc
+      console.log('标题+描述',this.panel.title,this.panel.titleDesc);
     }
     this.data = data;
     this.render();
@@ -361,13 +365,8 @@ class SingleStatCtrl extends MetricsPanelCtrl {
         let formatFunc = kbn.valueFormats[this.panel.format];
         data.value = lastPoint[1];
         data.valueRounded = data.value;
-        // 从平台上新增9月3日
-        // data.valueFormatted = formatFunc(data.value, 0, 0);
         data.valueFormatted = formatFunc(data.value, this.dashboard.isTimezoneUtc());
       } else {
-        // 从平台上新增9月3日
-        // data.value = this.series[0].stats[this.panel.valueName];
-        // data.flotpairs = this.series[0].flotpairs;
         data.value = this.series[bigValueIndex].stats[this.panel.valueName];
         data.flotpairs = this.series[sparklineIndex].flotpairs;
 
@@ -481,7 +480,6 @@ class SingleStatCtrl extends MetricsPanelCtrl {
     }
 //
     function getBigValueHtml() {
-      console.log('getbigValue的data',data);
       var body = '<div class="singlestat-panel-value-container">';
      
       if (panel.prefix) {

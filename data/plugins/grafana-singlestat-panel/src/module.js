@@ -158,6 +158,9 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         this.panel.gauge.maxValue = parseFloat(dataList[i].max) || 100;
                         this.panel.thresholds = dataList[i].thresholds;
                         this.panel.decimals = dataList[i].decimal || 0;
+                        this.panel.title = dataList[i].title;
+                        this.panel.description = dataList[i].titleDesc;
+                        console.log('标题+描述', this.panel.title, this.panel.titleDesc);
                     }
                     this.data = data;
                     this.render();
@@ -425,7 +428,6 @@ System.register(["lodash", "jquery", "app/core/utils/kbn", "app/core/config", "a
                         return '<span class="' + className + '" style="font-size:' + fontSize + '">' + value + '</span>';
                     }
                     function getBigValueHtml() {
-                        console.log('getbigValue的data', data);
                         var body = '<div class="singlestat-panel-value-container">';
                         if (panel.prefix) {
                             var prefix = applyColoringThresholds(data.value, panel.prefix);
